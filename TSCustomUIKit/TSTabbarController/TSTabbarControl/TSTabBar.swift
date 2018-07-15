@@ -67,9 +67,8 @@ class TSTabBar: UITabBar {
         self.myDelegate?.tabbarDidSelectIndex(tabbar: self, selectIndex: (tap.view?.tag)!)
     }
     func setUpSelectedIndex(selectedIndex:NSInteger) {
-        var i = 0
-        for tabBtn in self.saveTabBarArrM {
-            let tbBtn = self.saveTabBarArrM[i]
+        
+        for (i, tbBtn) in self.saveTabBarArrM.enumerated() {
             if (i == selectedIndex) {
                 tbBtn.title?.textColor = ts_tabbar_config.selTitleColor
                 tbBtn.imageView?.image = self.selImageArrM[i]
@@ -103,7 +102,6 @@ class TSTabBar: UITabBar {
                 tbBtn.imageView?.image = self.norImageArrM[i]
                 tbBtn.imageView?.layer.removeAllAnimations()
             }
-            i += 1
         }
         
     }
