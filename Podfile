@@ -4,21 +4,24 @@
 source 'https://github.com/CocoaPods/Specs.git'
 source 'http://gitlab.caiqr.com/zhangjunjie/ExchangePodSpecs.git'
 
-target 'TSKit' do
+target 'TSCustomUIKit' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
+
 
   pod 'TSUtility'
   pod 'SnapKit'
   pod 'Kingfisher'
   pod 'TSRefresh'
-  
-  target 'TSKitTests' do
+
+  # Pods for TSCustomUIKit
+
+  target 'TSCustomUIKitTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'TSKitUITests' do
+  target 'TSCustomUIKitUITests' do
     inherit! :search_paths
     # Pods for testing
   end
