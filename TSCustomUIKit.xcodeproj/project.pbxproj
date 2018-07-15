@@ -14,6 +14,25 @@
 		F55F110D20FB24A50003588E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55F110B20FB24A50003588E /* LaunchScreen.storyboard */; };
 		F55F111820FB24A50003588E /* TSCustomUIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F111720FB24A50003588E /* TSCustomUIKitTests.swift */; };
 		F55F112320FB24A50003588E /* TSCustomUIKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F112220FB24A50003588E /* TSCustomUIKitUITests.swift */; };
+		F55F114920FB24DB0003588E /* TSRPhotoBrowserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F113120FB24DA0003588E /* TSRPhotoBrowserCollectionViewCell.swift */; };
+		F55F114A20FB24DB0003588E /* TSRPhotoBrowser.md in Resources */ = {isa = PBXBuildFile; fileRef = F55F113220FB24DA0003588E /* TSRPhotoBrowser.md */; };
+		F55F114B20FB24DB0003588E /* TSRPhotoBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F113320FB24DA0003588E /* TSRPhotoBrowserView.swift */; };
+		F55F114C20FB24DB0003588E /* TSTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F113620FB24DA0003588E /* TSTabBar.swift */; };
+		F55F114D20FB24DB0003588E /* TSTabbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F113720FB24DA0003588E /* TSTabbarButton.swift */; };
+		F55F114E20FB24DB0003588E /* TSTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F113820FB24DA0003588E /* TSTabbarViewController.swift */; };
+		F55F114F20FB24DB0003588E /* TSBadgeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F113920FB24DA0003588E /* TSBadgeValue.swift */; };
+		F55F115020FB24DB0003588E /* TSTabBarConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F113A20FB24DA0003588E /* TSTabBarConfig.swift */; };
+		F55F115120FB24DB0003588E /* TSTUIColorWithHexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F113C20FB24DA0003588E /* TSTUIColorWithHexString.swift */; };
+		F55F115220FB24DB0003588E /* TSTabbarViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F113D20FB24DA0003588E /* TSTabbarViewExtension.swift */; };
+		F55F115320FB24DB0003588E /* TSTabbarWithCAAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F113E20FB24DA0003588E /* TSTabbarWithCAAnimation.swift */; };
+		F55F115420FB24DB0003588E /* TSTableViewReadme.md in Resources */ = {isa = PBXBuildFile; fileRef = F55F114020FB24DA0003588E /* TSTableViewReadme.md */; };
+		F55F115520FB24DB0003588E /* TSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F114120FB24DA0003588E /* TSTableView.swift */; };
+		F55F115620FB24DB0003588E /* TSTableViewQuickCreateCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F114220FB24DA0003588E /* TSTableViewQuickCreateCellExtension.swift */; };
+		F55F115720FB24DB0003588E /* UIImage+TSUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F114420FB24DA0003588E /* UIImage+TSUIKit.swift */; };
+		F55F115820FB24DB0003588E /* TSSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F114620FB24DA0003588E /* TSSegmentedControl.swift */; };
+		F55F115920FB24DB0003588E /* TSPageControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F114820FB24DB0003588E /* TSPageControllerHelper.swift */; };
+		F55F115C20FB252D0003588E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F55F115A20FB252D0003588E /* LICENSE */; };
+		F55F115F20FB261C0003588E /* TSCustomUIKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F55F115E20FB261C0003588E /* TSCustomUIKit.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +66,25 @@
 		F55F111E20FB24A50003588E /* TSCustomUIKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSCustomUIKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55F112220FB24A50003588E /* TSCustomUIKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSCustomUIKitUITests.swift; sourceTree = "<group>"; };
 		F55F112420FB24A50003588E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F55F113120FB24DA0003588E /* TSRPhotoBrowserCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSRPhotoBrowserCollectionViewCell.swift; sourceTree = "<group>"; };
+		F55F113220FB24DA0003588E /* TSRPhotoBrowser.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = TSRPhotoBrowser.md; sourceTree = "<group>"; };
+		F55F113320FB24DA0003588E /* TSRPhotoBrowserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSRPhotoBrowserView.swift; sourceTree = "<group>"; };
+		F55F113620FB24DA0003588E /* TSTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSTabBar.swift; sourceTree = "<group>"; };
+		F55F113720FB24DA0003588E /* TSTabbarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSTabbarButton.swift; sourceTree = "<group>"; };
+		F55F113820FB24DA0003588E /* TSTabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSTabbarViewController.swift; sourceTree = "<group>"; };
+		F55F113920FB24DA0003588E /* TSBadgeValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSBadgeValue.swift; sourceTree = "<group>"; };
+		F55F113A20FB24DA0003588E /* TSTabBarConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSTabBarConfig.swift; sourceTree = "<group>"; };
+		F55F113C20FB24DA0003588E /* TSTUIColorWithHexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSTUIColorWithHexString.swift; sourceTree = "<group>"; };
+		F55F113D20FB24DA0003588E /* TSTabbarViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSTabbarViewExtension.swift; sourceTree = "<group>"; };
+		F55F113E20FB24DA0003588E /* TSTabbarWithCAAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSTabbarWithCAAnimation.swift; sourceTree = "<group>"; };
+		F55F114020FB24DA0003588E /* TSTableViewReadme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = TSTableViewReadme.md; sourceTree = "<group>"; };
+		F55F114120FB24DA0003588E /* TSTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSTableView.swift; sourceTree = "<group>"; };
+		F55F114220FB24DA0003588E /* TSTableViewQuickCreateCellExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSTableViewQuickCreateCellExtension.swift; sourceTree = "<group>"; };
+		F55F114420FB24DA0003588E /* UIImage+TSUIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+TSUIKit.swift"; sourceTree = "<group>"; };
+		F55F114620FB24DA0003588E /* TSSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSSegmentedControl.swift; sourceTree = "<group>"; };
+		F55F114820FB24DB0003588E /* TSPageControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSPageControllerHelper.swift; sourceTree = "<group>"; };
+		F55F115A20FB252D0003588E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		F55F115E20FB261C0003588E /* TSCustomUIKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TSCustomUIKit.podspec; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +135,14 @@
 		F55F110120FB24A40003588E /* TSCustomUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				F55F115E20FB261C0003588E /* TSCustomUIKit.podspec */,
+				F55F115A20FB252D0003588E /* LICENSE */,
+				F55F114720FB24DB0003588E /* PageController */,
+				F55F114520FB24DA0003588E /* Segmented */,
+				F55F113F20FB24DA0003588E /* TableView */,
+				F55F113020FB24DA0003588E /* TSRPhotoBrowser */,
+				F55F113420FB24DA0003588E /* TSTabbarController */,
+				F55F114320FB24DA0003588E /* UIImageExtension */,
 				F55F110220FB24A40003588E /* AppDelegate.swift */,
 				F55F110420FB24A40003588E /* ViewController.swift */,
 				F55F110620FB24A40003588E /* Main.storyboard */,
@@ -123,6 +169,81 @@
 				F55F112420FB24A50003588E /* Info.plist */,
 			);
 			path = TSCustomUIKitUITests;
+			sourceTree = "<group>";
+		};
+		F55F113020FB24DA0003588E /* TSRPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				F55F113120FB24DA0003588E /* TSRPhotoBrowserCollectionViewCell.swift */,
+				F55F113220FB24DA0003588E /* TSRPhotoBrowser.md */,
+				F55F113320FB24DA0003588E /* TSRPhotoBrowserView.swift */,
+			);
+			path = TSRPhotoBrowser;
+			sourceTree = "<group>";
+		};
+		F55F113420FB24DA0003588E /* TSTabbarController */ = {
+			isa = PBXGroup;
+			children = (
+				F55F113520FB24DA0003588E /* TSTabbarControl */,
+				F55F113B20FB24DA0003588E /* TSTabbarUtility */,
+			);
+			path = TSTabbarController;
+			sourceTree = "<group>";
+		};
+		F55F113520FB24DA0003588E /* TSTabbarControl */ = {
+			isa = PBXGroup;
+			children = (
+				F55F113620FB24DA0003588E /* TSTabBar.swift */,
+				F55F113720FB24DA0003588E /* TSTabbarButton.swift */,
+				F55F113820FB24DA0003588E /* TSTabbarViewController.swift */,
+				F55F113920FB24DA0003588E /* TSBadgeValue.swift */,
+				F55F113A20FB24DA0003588E /* TSTabBarConfig.swift */,
+			);
+			path = TSTabbarControl;
+			sourceTree = "<group>";
+		};
+		F55F113B20FB24DA0003588E /* TSTabbarUtility */ = {
+			isa = PBXGroup;
+			children = (
+				F55F113C20FB24DA0003588E /* TSTUIColorWithHexString.swift */,
+				F55F113D20FB24DA0003588E /* TSTabbarViewExtension.swift */,
+				F55F113E20FB24DA0003588E /* TSTabbarWithCAAnimation.swift */,
+			);
+			path = TSTabbarUtility;
+			sourceTree = "<group>";
+		};
+		F55F113F20FB24DA0003588E /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				F55F114020FB24DA0003588E /* TSTableViewReadme.md */,
+				F55F114120FB24DA0003588E /* TSTableView.swift */,
+				F55F114220FB24DA0003588E /* TSTableViewQuickCreateCellExtension.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		F55F114320FB24DA0003588E /* UIImageExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F55F114420FB24DA0003588E /* UIImage+TSUIKit.swift */,
+			);
+			path = UIImageExtension;
+			sourceTree = "<group>";
+		};
+		F55F114520FB24DA0003588E /* Segmented */ = {
+			isa = PBXGroup;
+			children = (
+				F55F114620FB24DA0003588E /* TSSegmentedControl.swift */,
+			);
+			path = Segmented;
+			sourceTree = "<group>";
+		};
+		F55F114720FB24DB0003588E /* PageController */ = {
+			isa = PBXGroup;
+			children = (
+				F55F114820FB24DB0003588E /* TSPageControllerHelper.swift */,
+			);
+			path = PageController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +350,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F55F115C20FB252D0003588E /* LICENSE in Resources */,
+				F55F114A20FB24DB0003588E /* TSRPhotoBrowser.md in Resources */,
+				F55F115F20FB261C0003588E /* TSCustomUIKit.podspec in Resources */,
+				F55F115420FB24DB0003588E /* TSTableViewReadme.md in Resources */,
 				F55F110D20FB24A50003588E /* LaunchScreen.storyboard in Resources */,
 				F55F110A20FB24A50003588E /* Assets.xcassets in Resources */,
 				F55F110820FB24A40003588E /* Main.storyboard in Resources */,
@@ -256,8 +381,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F55F115920FB24DB0003588E /* TSPageControllerHelper.swift in Sources */,
+				F55F115620FB24DB0003588E /* TSTableViewQuickCreateCellExtension.swift in Sources */,
+				F55F115120FB24DB0003588E /* TSTUIColorWithHexString.swift in Sources */,
+				F55F115220FB24DB0003588E /* TSTabbarViewExtension.swift in Sources */,
 				F55F110520FB24A40003588E /* ViewController.swift in Sources */,
+				F55F114920FB24DB0003588E /* TSRPhotoBrowserCollectionViewCell.swift in Sources */,
+				F55F114C20FB24DB0003588E /* TSTabBar.swift in Sources */,
+				F55F114B20FB24DB0003588E /* TSRPhotoBrowserView.swift in Sources */,
+				F55F115820FB24DB0003588E /* TSSegmentedControl.swift in Sources */,
+				F55F115020FB24DB0003588E /* TSTabBarConfig.swift in Sources */,
+				F55F115520FB24DB0003588E /* TSTableView.swift in Sources */,
+				F55F115320FB24DB0003588E /* TSTabbarWithCAAnimation.swift in Sources */,
+				F55F114F20FB24DB0003588E /* TSBadgeValue.swift in Sources */,
+				F55F114D20FB24DB0003588E /* TSTabbarButton.swift in Sources */,
 				F55F110320FB24A40003588E /* AppDelegate.swift in Sources */,
+				F55F115720FB24DB0003588E /* UIImage+TSUIKit.swift in Sources */,
+				F55F114E20FB24DB0003588E /* TSTabbarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
