@@ -10,6 +10,7 @@
 		A85FDA07843F3CD76ACF9188 /* Pods_TSCustomUIKitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B71FEB883CCF51F0D9EC3CD1 /* Pods_TSCustomUIKitUITests.framework */; };
 		DA49DEC69D924067B335A57A /* Pods_TSCustomUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A2A3926422563394FE49FD /* Pods_TSCustomUIKit.framework */; };
 		E573579E5FC0A23A04DE17F8 /* Pods_TSCustomUIKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69AC087D5F175A29E247B987 /* Pods_TSCustomUIKitTests.framework */; };
+		F557295B20FE032100C30437 /* TSKeyBoardToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F557295A20FE032100C30437 /* TSKeyBoardToolBar.swift */; };
 		F55F110320FB24A40003588E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F110220FB24A40003588E /* AppDelegate.swift */; };
 		F55F110520FB24A40003588E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F110420FB24A40003588E /* ViewController.swift */; };
 		F55F110820FB24A40003588E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55F110620FB24A40003588E /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 		90B3F4B6BE2F4EAD3A126299 /* Pods-TSCustomUIKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSCustomUIKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSCustomUIKitTests/Pods-TSCustomUIKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		965204FE4AB42959D7495E23 /* Pods-TSCustomUIKitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSCustomUIKitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSCustomUIKitUITests/Pods-TSCustomUIKitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B71FEB883CCF51F0D9EC3CD1 /* Pods_TSCustomUIKitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSCustomUIKitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F557295A20FE032100C30437 /* TSKeyBoardToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSKeyBoardToolBar.swift; sourceTree = "<group>"; };
 		F55F10FF20FB24A40003588E /* TSCustomUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSCustomUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55F110220FB24A40003588E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F55F110420FB24A40003588E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F557295720FE02E500C30437 /* KeyBoardBar */ = {
+			isa = PBXGroup;
+			children = (
+				F557295A20FE032100C30437 /* TSKeyBoardToolBar.swift */,
+			);
+			path = KeyBoardBar;
+			sourceTree = "<group>";
+		};
 		F55F10F620FB24A40003588E = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +193,7 @@
 				F55F113020FB24DA0003588E /* TSRPhotoBrowser */,
 				F55F113420FB24DA0003588E /* TSTabbarController */,
 				F55F114320FB24DA0003588E /* UIImageExtension */,
+				F557295720FE02E500C30437 /* KeyBoardBar */,
 				F55F110220FB24A40003588E /* AppDelegate.swift */,
 				F55F110420FB24A40003588E /* ViewController.swift */,
 				F55F110620FB24A40003588E /* Main.storyboard */,
@@ -298,7 +309,6 @@
 				F55F10FC20FB24A40003588E /* Frameworks */,
 				F55F10FD20FB24A40003588E /* Resources */,
 				5B08D5C8847E7D4B02E1BC2C /* [CP] Embed Pods Frameworks */,
-				7A4D4D881AE917906B01F782 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -317,8 +327,6 @@
 				F55F110F20FB24A50003588E /* Sources */,
 				F55F111020FB24A50003588E /* Frameworks */,
 				F55F111120FB24A50003588E /* Resources */,
-				D93F5CDCE687FD704ED4E7C4 /* [CP] Embed Pods Frameworks */,
-				F81E6F9DE96F0C4AFF67F7B6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -338,8 +346,6 @@
 				F55F111A20FB24A50003588E /* Sources */,
 				F55F111B20FB24A50003588E /* Frameworks */,
 				F55F111C20FB24A50003588E /* Resources */,
-				65FBCE8DF23BD83D001E155B /* [CP] Embed Pods Frameworks */,
-				854444B7EA7FFEDCF889A1F6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -468,51 +474,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSCustomUIKit/Pods-TSCustomUIKit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		65FBCE8DF23BD83D001E155B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSCustomUIKitUITests/Pods-TSCustomUIKitUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7A4D4D881AE917906B01F782 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSCustomUIKit/Pods-TSCustomUIKit-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		854444B7EA7FFEDCF889A1F6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSCustomUIKitUITests/Pods-TSCustomUIKitUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8783DA45279EE66E80B30DB3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -549,36 +510,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D93F5CDCE687FD704ED4E7C4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSCustomUIKitTests/Pods-TSCustomUIKitTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F81E6F9DE96F0C4AFF67F7B6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSCustomUIKitTests/Pods-TSCustomUIKitTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -595,6 +526,7 @@
 				F55F114C20FB24DB0003588E /* TSTabBar.swift in Sources */,
 				F55F114B20FB24DB0003588E /* TSRPhotoBrowserView.swift in Sources */,
 				F55F115820FB24DB0003588E /* TSSegmentedControl.swift in Sources */,
+				F557295B20FE032100C30437 /* TSKeyBoardToolBar.swift in Sources */,
 				F55F115020FB24DB0003588E /* TSTabBarConfig.swift in Sources */,
 				F55F115520FB24DB0003588E /* TSTableView.swift in Sources */,
 				F55F115320FB24DB0003588E /* TSTabbarWithCAAnimation.swift in Sources */,

@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "TSCustomUIKit"
-s.version      = "0.0.1"
+s.version      = "0.0.3"
 s.summary      = "this is app custom UIKit"
 
 s.description  = <<-DESC
@@ -57,6 +57,11 @@ end
 
 s.subspec 'TSTabbarController' do |ss|
 ss.source_files = 'TSCustomUIKit/TSTabbarController/TSTabbarControl/*','TSCustomUIKit/TSTabbarController/TSTabbarUtility/*'
+end
+
+s.subspec 'KeyBoardBar' do |ss|
+ss.source_files = 'TSCustomUIKit/KeyBoardBar/*'
+ss.dependency 'SnapKit'
 end
 
 end
