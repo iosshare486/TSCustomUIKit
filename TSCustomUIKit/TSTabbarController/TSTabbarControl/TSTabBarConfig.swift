@@ -11,11 +11,11 @@ import UIKit
 protocol TSTabbarDefaultConfig {
     func tabBarDefaultConfig() -> ()
 }
-enum TSConfigTypeLayout:Int,Codable {
+public enum TSConfigTypeLayout:Int,Codable {
     case TSConfigTypeLayoutNormal = 0 //默认布局 图片在上 文字在下
     case TSConfigTypeLayoutImage = 1 //只有图片 (图片居中)
 }
-enum TSConfigTabBarAnimType:Int,Codable {
+public enum TSConfigTabBarAnimType:Int,Codable {
     case TSConfigTabBarAnimTypeNormal = 0 //无动画
     case TSConfigTabBarAnimTypeRotationY = 1 //Y轴旋转
     case TSConfigTabBarAnimTypeBoundsMin = 2 //缩小
@@ -23,7 +23,7 @@ enum TSConfigTabBarAnimType:Int,Codable {
     case TSConfigTabBarAnimTypeScale = 4 //缩放动画
 }
 
-enum TSConfigBadgeAnimType:Int,Codable {
+public enum TSConfigBadgeAnimType:Int,Codable {
     case TSConfigBadgeAnimTypeNormal = 0 //无动画
     case TSConfigBadgeAnimTypeShake = 1 //抖动动画
     case TSConfigBadgeAnimTypeOpacity = 2 //透明过渡动画
@@ -66,67 +66,67 @@ open class TSTabBarConfig: NSObject {
     private(set) var selImageArr : Array<UIImage> = []
     
     
-    func setTypeLayout(typeLayout: TSConfigTypeLayout) {
+    public func setTypeLayout(typeLayout: TSConfigTypeLayout) {
         self.typeLayout = typeLayout
     }
-    func setNorTitleColor(color: UIColor) {
+    public func setNorTitleColor(color: UIColor) {
         self.norTitleColor = color
     }
-    func setSelTitleColor(color: UIColor) {
+    public func setSelTitleColor(color: UIColor) {
         self.selTitleColor = color
     }
-    func setImageSize(imageSize: CGSize) {
+    public func setImageSize(imageSize: CGSize) {
         self.imageSize = imageSize
     }
-    func setTabBarAnimtype(type:TSConfigTabBarAnimType) {
+    public func setTabBarAnimtype(type:TSConfigTabBarAnimType) {
         self.tabBarAnimtype = type
     }
-    func setIsClearTabBarTopLine(state:Bool) {
+    public func setIsClearTabBarTopLine(state:Bool) {
         self.isClearTabBarTopLine = state
     }
-    func setTabBarBackground(color:UIColor) {
+    public func setTabBarBackground(color:UIColor) {
         self.tabBarBackground = color
     }
-    func setTabBarTopLineColor(color:UIColor) {
+    public func setTabBarTopLineColor(color:UIColor) {
         self.tabBarTopLineColor = color
     }
-    func setControllersArr(controllers: [UIViewController]) {
+    public func setControllersArr(controllers: [UIViewController]) {
         self.controllersArr = controllers
     }
-    func setTitleArr(array: [String]) {
+    public func setTitleArr(array: [String]) {
         self.titleArr = array
     }
-    func setNorImageArr(normalimagearr: [UIImage]) {
+    public func setNorImageArr(normalimagearr: [UIImage]) {
         self.norImageArr = normalimagearr
     }
-    func setSelImageArr(selimagearr: [UIImage]) {
+    public func setSelImageArr(selimagearr: [UIImage]) {
         self.selImageArr = selimagearr
     }
-    func setBadgeTextColor(color: UIColor) {
+    public func setBadgeTextColor(color: UIColor) {
         self.badgeTextColor = color
     }
     
-    func setBadgeBackgroundColor(color: UIColor) {
+    public func setBadgeBackgroundColor(color: UIColor) {
         self.badgeBackgroundColor = color
     }
-    func setBadgeSize(size: CGSize) {
+    public func setBadgeSize(size: CGSize) {
         self.badgeSize = size
     }
-    func setBadgeOffset(offset: CGPoint) {
+    public func setBadgeOffset(offset: CGPoint) {
         self.badgeOffset = offset
     }
-    func setBadgeRadius(radius: CGFloat) {
+    public func setBadgeRadius(radius: CGFloat) {
         self.badgeRadius = radius
     }
-    func setbadgeAnimType(type: TSConfigBadgeAnimType) {
+    public func setbadgeAnimType(type: TSConfigBadgeAnimType) {
         self.animType = type
     }
-    func setTabBarInfo(info: [TSTabBarInfoModel]) {
+    public func setTabBarInfo(info: [TSTabBarInfoModel]) {
         self.tabBarInfo = info
     }
     
     /***********************************************************************************/
-
+    
     private(set) var tabBarInfo : [TSTabBarInfoModel] = []{
         didSet{
             for tabBarItem in tabBarInfo {
@@ -150,12 +150,12 @@ open class TSTabBarConfig: NSObject {
     }
     /** badgeBackgroundColor (默认 #FF4040)*/
     private(set) var badgeBackgroundColor : UIColor = UIColor.ts_colorWithHexString(color: "#FF4040"){
-            didSet{
-                    let arrM = getTabBarButtons()
-                    for btn in arrM {
-                        btn.badgeValue?.badgeL.backgroundColor = self.badgeBackgroundColor;
-                    }
+        didSet{
+            let arrM = getTabBarButtons()
+            for btn in arrM {
+                btn.badgeValue?.badgeL.backgroundColor = self.badgeBackgroundColor;
             }
+        }
     }
     /** badgeSize (如没有特殊需求, 请勿修改此属性, 此属性只有在控制器加载完成后有效)*/
     private(set) var badgeSize: CGSize = CGSize(width: 20.0, height: 20.0) {
@@ -192,7 +192,7 @@ open class TSTabBarConfig: NSObject {
     
     /******************************** 自定义按钮 基本配置 ********************************/
     /** btnClickBlock */
-    var btnClickBlock : TSConfigCustomBtnBlock?
+    public var btnClickBlock : TSConfigCustomBtnBlock?
     
     static var configSinglation : TSTabBarConfig?
     class func createConfig() ->TSTabBarConfig {
@@ -206,15 +206,15 @@ open class TSTabBarConfig: NSObject {
     }
     
     func configNormal() {
-            self.norTitleColor = UIColor.ts_colorWithHexString(color: "#808080")
-            self.selTitleColor = UIColor.ts_colorWithHexString(color: "#d81e06")
-            self.isClearTabBarTopLine = true;
-            self.tabBarTopLineColor = .lightGray
-            self.tabBarBackground = .white
-            self.typeLayout = .TSConfigTypeLayoutNormal
-            self.imageSize = CGSize(width:28, height:28)
-            self.badgeTextColor = UIColor.ts_colorWithHexString(color:"#FFFFFF")
-            self.badgeBackgroundColor = UIColor.ts_colorWithHexString(color:"#FF4040")
+        self.norTitleColor = UIColor.ts_colorWithHexString(color: "#808080")
+        self.selTitleColor = UIColor.ts_colorWithHexString(color: "#d81e06")
+        self.isClearTabBarTopLine = true;
+        self.tabBarTopLineColor = .lightGray
+        self.tabBarBackground = .white
+        self.typeLayout = .TSConfigTypeLayoutNormal
+        self.imageSize = CGSize(width:28, height:28)
+        self.badgeTextColor = UIColor.ts_colorWithHexString(color:"#FFFFFF")
+        self.badgeBackgroundColor = UIColor.ts_colorWithHexString(color:"#FF4040")
     }
     
     /**
@@ -222,7 +222,7 @@ open class TSTabBarConfig: NSObject {
      @param radius 圆角值
      @param index 下标
      */
-    func badgeRadius(radius:CGFloat, index:NSInteger) {
+    public func badgeRadius(radius:CGFloat, index:NSInteger) {
         let tabBarButton = self.getTabBarButtonAtIndex(index:index)
         tabBarButton.badgeValue?.badgeL.layer.cornerRadius = radius;
     }
@@ -231,7 +231,7 @@ open class TSTabBarConfig: NSObject {
      显示圆点badgevalue  (以下关于badgeValue的操作可以在app全局操作)  使用方法 [[JMConfig config] showPointBadgeValue: AtIndex: ]
      @param index 显示的下标
      */
-    func showPointBadgeAtIndex(index:NSInteger) {
+    public func showPointBadgeAtIndex(index:NSInteger) {
         let tabBarButton = self.getTabBarButtonAtIndex(index:index)
         tabBarButton.badgeValue?.isHidden = false;
         tabBarButton.badgeValue?.type = .TSBadgeValueTypePoint;
@@ -242,7 +242,7 @@ open class TSTabBarConfig: NSObject {
      显示newBadgeValue (以下关于badgeValue的操作可以在app全局操作)
      @param index 下标
      */
-    func showNewBadgeAtIndex(index:NSInteger) {
+    public func showNewBadgeAtIndex(index:NSInteger) {
         let tabBarButton = self.getTabBarButtonAtIndex(index:index)
         tabBarButton.badgeValue?.isHidden = false;
         tabBarButton.badgeValue?.badgeL.text = "new";
@@ -255,7 +255,7 @@ open class TSTabBarConfig: NSObject {
      @param badgeValue 数值
      @param index 下标
      */
-    func showNumberBadgeValue(badgeValue:String, index:NSInteger) {
+    public func showNumberBadgeValue(badgeValue:String, index:NSInteger) {
         let tabBarButton = self.getTabBarButtonAtIndex(index:index)
         tabBarButton.badgeValue?.isHidden = false;
         tabBarButton.badgeValue?.badgeL.text = badgeValue;
@@ -268,7 +268,7 @@ open class TSTabBarConfig: NSObject {
      
      @param index 下标
      */
-    func hideBadgeAtIndex(index:NSInteger) {
+    public func hideBadgeAtIndex(index:NSInteger) {
         self.getTabBarButtonAtIndex(index:index).badgeValue?.isHidden = true
     }
     
@@ -282,8 +282,8 @@ open class TSTabBarConfig: NSObject {
      @param index 添加的下标位置
      @param btnClickBlock 按钮点击事件的回调
      */
-
-    func addCustomBtn(btn:UIButton, index:NSInteger , btnClickBlock:@escaping TSConfigCustomBtnBlock) {
+    
+    public func addCustomBtn(btn:UIButton, index:NSInteger , btnClickBlock:@escaping TSConfigCustomBtnBlock) {
         btn.tag = index;
         btn.addTarget(self, action: #selector(customBtnClick), for:.touchUpInside)
         self.btnClickBlock = btnClickBlock;
@@ -327,14 +327,13 @@ open class TSTabBarConfig: NSObject {
 
 
 
-extension TSTabBarConfig{
-    func getTabBarVC() -> TSTabbarViewController {
-
+public extension TSTabBarConfig{
+    public func getTabBarVC() -> TSTabbarViewController {
         self.tabBarController = TSTabbarViewController().initWithTabBarControllers()
         return self.tabBarController!
         
     }
-
+    
 }
 
 
@@ -344,11 +343,11 @@ extension TSTabBarConfig{
 
 
 
-class TSTabBarInfoModel: NSObject {
-    var title : String = ""
-    var norImage : UIImage?
-    var selImage : UIImage?
-    var controller : UIViewController?
+open class TSTabBarInfoModel: NSObject {
+    open var title : String = ""
+    open var norImage : UIImage?
+    open var selImage : UIImage?
+    open var controller : UIViewController?
     
 }
 

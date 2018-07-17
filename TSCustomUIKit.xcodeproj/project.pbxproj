@@ -298,6 +298,7 @@
 				F55F10FC20FB24A40003588E /* Frameworks */,
 				F55F10FD20FB24A40003588E /* Resources */,
 				5B08D5C8847E7D4B02E1BC2C /* [CP] Embed Pods Frameworks */,
+				7A4D4D881AE917906B01F782 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -316,6 +317,8 @@
 				F55F110F20FB24A50003588E /* Sources */,
 				F55F111020FB24A50003588E /* Frameworks */,
 				F55F111120FB24A50003588E /* Resources */,
+				D93F5CDCE687FD704ED4E7C4 /* [CP] Embed Pods Frameworks */,
+				F81E6F9DE96F0C4AFF67F7B6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -335,6 +338,8 @@
 				F55F111A20FB24A50003588E /* Sources */,
 				F55F111B20FB24A50003588E /* Frameworks */,
 				F55F111C20FB24A50003588E /* Resources */,
+				65FBCE8DF23BD83D001E155B /* [CP] Embed Pods Frameworks */,
+				854444B7EA7FFEDCF889A1F6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -463,6 +468,51 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSCustomUIKit/Pods-TSCustomUIKit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		65FBCE8DF23BD83D001E155B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSCustomUIKitUITests/Pods-TSCustomUIKitUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A4D4D881AE917906B01F782 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSCustomUIKit/Pods-TSCustomUIKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		854444B7EA7FFEDCF889A1F6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSCustomUIKitUITests/Pods-TSCustomUIKitUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8783DA45279EE66E80B30DB3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -497,6 +547,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D93F5CDCE687FD704ED4E7C4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSCustomUIKitTests/Pods-TSCustomUIKitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F81E6F9DE96F0C4AFF67F7B6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSCustomUIKitTests/Pods-TSCustomUIKitTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
