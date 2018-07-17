@@ -7,6 +7,7 @@
 //  封装键盘弹出收起的动画 直接赋值subItem即可
 
 import UIKit
+import SnapKit
 
 public class TSKeyBoardToolBar: UIView {
 

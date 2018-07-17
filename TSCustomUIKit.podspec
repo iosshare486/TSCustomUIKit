@@ -59,4 +59,9 @@ s.subspec 'TSTabbarController' do |ss|
 ss.source_files = 'TSCustomUIKit/TSTabbarController/TSTabbarControl/*','TSCustomUIKit/TSTabbarController/TSTabbarUtility/*'
 end
 
+s.subspec 'KeyBoardBar' do |ss|
+ss.source_files = 'TSCustomUIKit/KeyBoardBar/*'
+ss.dependency 'SnapKit'
+end
+
 end
