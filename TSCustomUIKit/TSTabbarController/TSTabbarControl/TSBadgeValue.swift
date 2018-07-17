@@ -16,7 +16,7 @@ enum TSBadgeValueType {
 
 
 class TSBadgeValue: UIView {
-
+    
     var badgeL = UILabel()
     var type: TSBadgeValueType = .TSBadgeValueTypePoint {
         didSet{
@@ -51,7 +51,7 @@ class TSBadgeValue: UIView {
             }
         }
     }
-
+    
     override public init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -69,7 +69,7 @@ class TSBadgeValue: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-
+    
     func sizeWithAttribute(text:NSString) -> CGSize {
         return text.size(withAttributes: [NSAttributedStringKey.font: self.badgeL.font])
     }

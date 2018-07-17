@@ -12,8 +12,8 @@ protocol TSTabBarDelegate {
     func tabbarDidSelectIndex(tabbar:TSTabBar, selectIndex:NSInteger)
 }
 
-class TSTabBar: UITabBar {
-
+open class TSTabBar: UITabBar {
+    
     var myDelegate : TSTabBarDelegate?
     
     var saveTabBarArrM = Array<TSTabbarButton>()
@@ -37,7 +37,7 @@ class TSTabBar: UITabBar {
             tbBtn.typeLayout = ts_tabbar_config.typeLayout;
             tbBtn.tag = i;
             self.addSubview(tbBtn)
-
+            
             
             let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapClick))
             tbBtn.addGestureRecognizer(tap)
@@ -48,7 +48,7 @@ class TSTabBar: UITabBar {
             i += 1
         }
         
-
+        
         
         //背景颜色处理
         self.backgroundColor = ts_tabbar_config.tabBarBackground
@@ -107,7 +107,7 @@ class TSTabBar: UITabBar {
     }
     
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         var tempArr = Array<Any>()
         for tabBarButton in self.subviews {
@@ -155,7 +155,7 @@ class TSTabBar: UITabBar {
         UIGraphicsEndImageContext();
         self.backgroundImage = UIImage()
         self.shadowImage = img
-    
+        
     }
     
 }

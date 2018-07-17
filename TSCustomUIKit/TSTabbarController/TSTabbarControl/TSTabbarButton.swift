@@ -9,7 +9,7 @@
 import UIKit
 
 class TSTabbarButton: UIView {
-
+    
     var typeLayout: TSConfigTypeLayout = .TSConfigTypeLayoutNormal {
         didSet {
             if (typeLayout == .TSConfigTypeLayoutImage) {
@@ -32,7 +32,7 @@ class TSTabbarButton: UIView {
         
         self.title = UILabel();
         self.title?.textAlignment = .center
-//        self.title.font = [UIFont systemFontOfSize:10.f];
+        //        self.title.font = [UIFont systemFontOfSize:10.f];
         self.title?.font = UIFont.systemFont(ofSize: 10.0)
         self.addSubview(self.title!)
         
@@ -41,7 +41,7 @@ class TSTabbarButton: UIView {
         self.addSubview(self.badgeValue!)
         return self
     }
-
+    
     override func layoutSubviews() {
         let imageSize = ts_tabbar_config.imageSize
         var imageY = 5
