@@ -198,7 +198,7 @@
 				F55F113F20FB24DA0003588E /* TableView */,
 				F55F113020FB24DA0003588E /* TSRPhotoBrowser */,
 				F55F113420FB24DA0003588E /* TSTabbarController */,
-				F55F114320FB24DA0003588E /* UIImageExtension */,
+				F55F114320FB24DA0003588E /* UIExtension */,
 				F557295720FE02E500C30437 /* KeyBoardBar */,
 				F55F110220FB24A40003588E /* AppDelegate.swift */,
 				F55F110420FB24A40003588E /* ViewController.swift */,
@@ -279,7 +279,7 @@
 			path = TableView;
 			sourceTree = "<group>";
 		};
-		F55F114320FB24DA0003588E /* UIImageExtension */ = {
+		F55F114320FB24DA0003588E /* UIExtension */ = {
 			isa = PBXGroup;
 			children = (
 				D42ABC9520FEF03800EFD97B /* TSUIKit.swift */,
@@ -287,7 +287,7 @@
 				D42ABC9620FEF03800EFD97B /* UIView+Extension.swift */,
 				F55F114420FB24DA0003588E /* UIImage+TSUIKit.swift */,
 			);
-			path = UIImageExtension;
+			path = UIExtension;
 			sourceTree = "<group>";
 		};
 		F55F114520FB24DA0003588E /* Segmented */ = {
