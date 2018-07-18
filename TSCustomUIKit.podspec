@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "TSCustomUIKit"
-s.version      = "0.0.3"
+s.version      = "0.0.4"
 s.summary      = "this is app custom UIKit"
 
 s.description  = <<-DESC
@@ -35,8 +35,8 @@ ss.source_files = 'TSCustomUIKit/pageController/*'
 ss.dependency 'TSUtility'
 end
 
-s.subspec 'UIImageExtension' do |ss|
-ss.source_files = 'TSCustomUIKit/UIImageExtension/*'
+s.subspec 'UIExtension' do |ss|
+ss.source_files = 'TSCustomUIKit/UIExtension/*'
 end
 
 s.subspec 'Segmented' do |ss|
