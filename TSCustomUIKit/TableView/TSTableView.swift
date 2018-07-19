@@ -9,14 +9,20 @@
 import UIKit
 import TSRefresh
 
-struct TSTableViewStyle: OptionSet {
+public struct TSTableViewStyle: OptionSet {
     
-    public let rawValue: Int
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
+    }
+    
+    public var rawValue: Int
     
     public static let refresh = TSTableViewStyle(rawValue: 1 << 0)
     public static let loading = TSTableViewStyle(rawValue: 1 << 1)
     public static let initCell = TSTableViewStyle(rawValue: 1 << 2)
     public static let selectCell = TSTableViewStyle(rawValue: 1 << 3)
+    public static let all = TSTableViewStyle(rawValue: 1 << 4)
+    public static let none = TSTableViewStyle(rawValue: 1 << 5)
 }
 
 
@@ -34,9 +40,9 @@ public protocol TSTableViewSectionHeaderDelegate {
 
 public class TSTableView: UITableView {
     
-    typealias refreshOperation = (()->Void)
-    typealias InitCellOperation = ((_ cell: UITableViewCell, _ index: IndexPath)->Void)
-    typealias SelectCellOperation = ((_ index: IndexPath)->Void)
+    public typealias refreshOperation = (()->Void)
+    public typealias InitCellOperation = ((_ cell: UITableViewCell, _ index: IndexPath)->Void)
+    public typealias SelectCellOperation = ((_ index: IndexPath)->Void)
     
     private var initCell: InitCellOperation?
     private var selectCell: SelectCellOperation?
@@ -44,7 +50,7 @@ public class TSTableView: UITableView {
     private var groupDatas: [TSTableViewSectionHeaderDelegate] = [TSTableViewSectionHeaderDelegate]()
     private var isGroup: Bool = false//是否分组
     ///  由于声明逃逸闭包不能声明可选，为了模拟可选类型，添加了一个默认，若是默认值，则表示没有传，即可选为nil
-    convenience init(frame: CGRect, createStyle: TSTableViewStyle, refresh: @escaping refreshOperation = {}, loading: @escaping refreshOperation = {}, initCell: @escaping InitCellOperation = {(cell, index) in }, selectCell: @escaping SelectCellOperation = {(index) in }) {
+    convenience public init(frame: CGRect, createStyle: TSTableViewStyle, refresh: @escaping refreshOperation = {}, loading: @escaping refreshOperation = {}, initCell: @escaping InitCellOperation = {(cell, index) in }, selectCell: @escaping SelectCellOperation = {(index) in }) {
         
         self.init(frame: frame, style: UITableViewStyle.plain)
         self.showsVerticalScrollIndicator = false
@@ -53,22 +59,23 @@ public class TSTableView: UITableView {
         self.rowHeight = UITableViewAutomaticDimension
         self.separatorStyle = .none
         self.backgroundColor = .white
-        if createStyle.contains(.refresh) {
+        
+        if createStyle.contains(.refresh) || createStyle.contains(.all) {
             self.ts_addRefreshAction {
                 refresh()
             }
         }
-        if createStyle.contains(.loading) {
+        if createStyle.contains(.loading) || createStyle.contains(.all)  {
             self.ts_addLoadMoreAction {
                 loading()
             }
         }
-        if createStyle.contains(.initCell) {
+        if createStyle.contains(.initCell) || createStyle.contains(.all)  {
             self.initCell = initCell
         }else {
             self.initCell = nil
         }
-        if createStyle.contains(.selectCell) {
+        if createStyle.contains(.selectCell) || createStyle.contains(.all)  {
             self.selectCell = selectCell
         }else {
             self.selectCell = nil
