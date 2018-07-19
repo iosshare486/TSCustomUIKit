@@ -18,6 +18,7 @@ Submodule/
 !default.perspectivev3
 xcuserdata/
 xcshareddata/
+*.DS_Store
 
 ## Other
 *.moved-aside

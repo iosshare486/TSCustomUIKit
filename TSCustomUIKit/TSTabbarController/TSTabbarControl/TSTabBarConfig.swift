@@ -234,7 +234,7 @@ open class TSTabBarConfig: NSObject {
     public func showPointBadgeAtIndex(index:NSInteger) {
         let tabBarButton = self.getTabBarButtonAtIndex(index:index)
         tabBarButton.badgeValue?.isHidden = false;
-        tabBarButton.badgeValue?.type = .TSBadgeValueTypePoint;
+        tabBarButton.badgeValue?.type = TSBadgeValueType.TSBadgeValueTypePoint;
     }
     
     
@@ -246,7 +246,7 @@ open class TSTabBarConfig: NSObject {
         let tabBarButton = self.getTabBarButtonAtIndex(index:index)
         tabBarButton.badgeValue?.isHidden = false;
         tabBarButton.badgeValue?.badgeL.text = "new";
-        tabBarButton.badgeValue?.type = .TSBadgeValueTypeNew;
+        tabBarButton.badgeValue?.type = TSBadgeValueType.TSBadgeValueTypeNew;
         
     }
     
@@ -259,7 +259,7 @@ open class TSTabBarConfig: NSObject {
         let tabBarButton = self.getTabBarButtonAtIndex(index:index)
         tabBarButton.badgeValue?.isHidden = false;
         tabBarButton.badgeValue?.badgeL.text = badgeValue;
-        tabBarButton.badgeValue?.type = .TSBadgeValueTypeNumber;
+        tabBarButton.badgeValue?.type = TSBadgeValueType.TSBadgeValueTypeNumber;
     }
     
     

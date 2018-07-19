@@ -20,14 +20,14 @@ class TSBadgeValue: UIView {
     var badgeL = UILabel()
     var type: TSBadgeValueType = .TSBadgeValueTypePoint {
         didSet{
-            if (type == .TSBadgeValueTypePoint) {
+            if (self.type == .TSBadgeValueTypePoint) {
                 self.badgeL.ts_size = CGSize(width: 10, height: 10)
                 self.badgeL.layer.cornerRadius = 5.0
                 self.badgeL.ts_x = 0
                 self.badgeL.ts_y = self.ts_height * 0.5 - self.badgeL.ts_size.height * 0.5
-            } else if (type == .TSBadgeValueTypeNew) {
+            } else if (self.type == .TSBadgeValueTypeNew) {
                 self.badgeL.ts_size = CGSize(width: self.ts_width, height: self.ts_height)
-            } else if (type == .TSBadgeValueTypeNumber) {
+            } else if (self.type == .TSBadgeValueTypeNumber) {
                 var size = CGSize.zero;
                 var radius = 8.0
                 if ((self.badgeL.text?.count)! <= 1) {
