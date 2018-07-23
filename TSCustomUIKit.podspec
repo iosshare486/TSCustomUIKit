@@ -64,4 +64,8 @@ ss.source_files = 'TSCustomUIKit/KeyBoardBar/*'
 ss.dependency 'SnapKit'
 end
 
+s.subspec 'TSTextfield' do |ss|
+ss.source_files = 'TSCustomUIKit/TSTextfield/*'
+end
+
 end
