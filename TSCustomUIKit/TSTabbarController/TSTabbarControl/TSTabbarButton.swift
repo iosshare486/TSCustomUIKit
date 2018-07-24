@@ -54,8 +54,8 @@ class TSTabbarButton: UIView {
         let titleX = 4.0
         let titleH = 14.0
         let titleW = self.ts_width - 8
-        let titleY = self.ts_height - 14
-        self.title?.frame = CGRect(x:CGFloat(titleX), y:titleY, width:titleW, height:CGFloat(titleH))
+        let titleY = imageY
+        self.title?.frame = CGRect(x:CGFloat(titleX), y:CGFloat(titleY) + imageSize.height, width:titleW, height:CGFloat(titleH))
         
         let badgeX = (self.imageView?.frame.maxX)! - 6
         let badgeY = (self.imageView?.frame.minY)! - 2
