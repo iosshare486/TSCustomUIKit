@@ -14,7 +14,7 @@ SPEC REPOS:
   http://gitlab.caiqr.com/zhangjunjie/ExchangePodSpecs.git:
     - TSRefresh
     - TSUtility
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Kingfisher
     - SnapKit
 
@@ -26,4 +26,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 1cf53c513e0f84dd07afc4c6bb3a2ac2bf74c306
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.2
