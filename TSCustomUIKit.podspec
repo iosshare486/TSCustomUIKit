@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "TSCustomUIKit"
-s.version      = "0.0.7"
+s.version      = "0.0.8"
 s.summary      = "this is app custom UIKit"
 
 s.description  = <<-DESC
@@ -66,6 +66,10 @@ end
 
 s.subspec 'TSTextfield' do |ss|
 ss.source_files = 'TSCustomUIKit/TSTextfield/*'
+end
+
+s.subspec 'TSToast' do |ss|
+ss.source_files = 'TSCustomUIKit/TSToast/*'
 end
 
 end
