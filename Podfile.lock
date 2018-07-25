@@ -10,6 +10,14 @@ DEPENDENCIES:
   - TSRefresh
   - TSUtility
 
+SPEC REPOS:
+  http://gitlab.caiqr.com/zhangjunjie/ExchangePodSpecs.git:
+    - TSRefresh
+    - TSUtility
+  https://github.com/cocoapods/specs.git:
+    - Kingfisher
+    - SnapKit
+
 SPEC CHECKSUMS:
   Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
@@ -18,4 +26,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 1cf53c513e0f84dd07afc4c6bb3a2ac2bf74c306
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.2
