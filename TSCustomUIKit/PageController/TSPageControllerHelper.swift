@@ -104,6 +104,9 @@ extension TSPageControllerHelper: UIPageViewControllerDelegate, UIPageViewContro
         
         if completed {
             
+            if let vc = pageViewController.viewControllers?.last, let index = self.viewControllers.index(of: vc)  {
+                self.currentIndex = index
+            }
             self.delegate?.pageViewControllerSelectItem?(index: self.currentIndex)
         }
         
