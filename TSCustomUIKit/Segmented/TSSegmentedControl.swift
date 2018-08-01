@@ -184,6 +184,12 @@ extension TSSegmentedControl {
     /// - Parameter tag: 下标
     public func defaultSeletButton(withTag tag: Int) {
         
+        guard tag < buttonArray.count else {
+            
+            TSLog("TSSegmentedControl: default index is not valid")
+            return
+        }
+        
         buttonArray[tag].isSelected = true
         selectButton(btn: buttonArray[tag], animation: false)
     }
