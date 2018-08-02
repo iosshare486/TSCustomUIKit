@@ -52,7 +52,7 @@ open class TSTextField: UITextField, UITextFieldDelegate {
     /**
         输入框类型
      */
-    var limitType: TSTextFieldLimitType?
+    public var limitType: TSTextFieldLimitType?
     /**
      输入框内容是否合格
      默认不合格
