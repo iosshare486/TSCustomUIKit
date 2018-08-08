@@ -208,6 +208,11 @@ extension TSSegmentedControl {
         mainView.addSubview(scrollLine)
         mainScorllView.showsVerticalScrollIndicator = false
         mainScorllView.showsHorizontalScrollIndicator = false
+        if #available(iOS 11.0, *) {
+            mainScorllView.contentInsetAdjustmentBehavior = .never
+        } else {
+            
+        }
     }
     
     private func setConstraints() {
