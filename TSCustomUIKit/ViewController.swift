@@ -21,7 +21,7 @@ class ViewController: UIViewController {
 
     @objc func buttonClick() -> Void {
 //        ts_toastControl.animationStyle = .upDownAndFade
-        TSToastControl.showToast("我")
+        TSToastControl.showToast("")
     }
     
     override func didReceiveMemoryWarning() {

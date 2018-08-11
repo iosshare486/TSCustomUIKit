@@ -65,11 +65,12 @@ open class TSToastDisplayControl: NSObject {
     /// 默认展示到window上
     ///
     /// - Parameter content: toast 文案
-    public func showToast( _ content: String)  {
+    public func showToast( _ content: String?)  {
         
-        if content.count == 0 {
+        guard let toastText = content, toastText.count > 0 else {
             return
         }
+        
         toastView.text = content
         toastView.layer.cornerRadius = CGFloat(tostViewCornerRadius)
         
@@ -84,7 +85,7 @@ open class TSToastDisplayControl: NSObject {
             make.centerX.equalToSuperview()
             make.height.equalTo(38.ts.scale())
             make.centerY.equalToSuperview()
-            make.width.equalTo(self.getTextWidth(text: content))
+            make.width.equalTo(self.getTextWidth(text: toastText))
         }
         needShowToast()
     }
