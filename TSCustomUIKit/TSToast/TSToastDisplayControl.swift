@@ -8,7 +8,10 @@
 
 import UIKit
 import SnapKit
-public let ts_toastControl = TSToastDisplayControl.sharedInstance()
+import TSUtility
+
+public let TSToastControl = TSToastDisplayControl.sharedInstance()
+
 public enum TSToastAnimationStyle : Int{
     case fade                 //渐隐渐显
     case upAndDown            //上出下走
@@ -27,13 +30,21 @@ open class TSToastDisplayControl: NSObject {
     public var animationStyle = TSToastAnimationStyle.fade
     
     //toastView 圆角弧度
-    public var tostViewCornerRadius = 4.0 {
+    public var tostViewCornerRadius: CGFloat = 4.0 {
         didSet {
             toastView.layer.cornerRadius = CGFloat(tostViewCornerRadius)
         }
     }
     
-    var toastView = UILabel()
+    //toastView 圆角弧度
+    public var toastBackgroundColor = UIColor.black {
+        didSet {
+            toastView.backgroundColor = toastBackgroundColor
+        }
+    }
+    
+    private var toastView = UILabel()
+    
     class func sharedInstance() -> TSToastDisplayControl {
         let tsToastControl = TSToastDisplayControl()
         tsToastControl.configToastView()
@@ -43,24 +54,25 @@ open class TSToastDisplayControl: NSObject {
     
     func configToastView() {
         toastView.alpha = 0
-        toastView.font = UIFont.systemFont(ofSize: 15.0*UIScreen.main.bounds.size.width / 375.0)
-        toastView.backgroundColor = UIColor.init(red: 155.0/255.0, green: 205/255.0, blue: 155/255.0, alpha: 0.8)
+        toastView.font = 14.ts.font()
+        toastView.backgroundColor = "#000000".ts.color(0.6)
         toastView.textAlignment = .center
         toastView.layer.masksToBounds = true
-        toastView.layer.cornerRadius = CGFloat(tostViewCornerRadius)
+        toastView.layer.cornerRadius = tostViewCornerRadius 
         toastView.textColor = .white
     }
     
     /// 默认展示到window上
     ///
     /// - Parameter content: toast 文案
-    public func showToast(content: String)  {
+    public func showToast( _ content: String)  {
         
         if content.count == 0 {
             return
         }
-        toastView.text = " " + content + " "
+        toastView.text = content
         toastView.layer.cornerRadius = CGFloat(tostViewCornerRadius)
+        
         if toastView.superview == nil {
             let window = UIApplication.shared.keyWindow
             if window == nil {
@@ -70,12 +82,23 @@ open class TSToastDisplayControl: NSObject {
         }
         toastView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.height.equalTo(30*UIScreen.main.bounds.size.width / 375.0)
-            make.centerY.equalToSuperview().multipliedBy(1.5)
+            make.height.equalTo(38.ts.scale())
+            make.centerY.equalToSuperview()
+            make.width.equalTo(self.getTextWidth(text: content))
         }
         needShowToast()
     }
     
+    func getTextWidth(text: String) -> CGFloat {
+        
+        let attributedStr: NSMutableAttributedString = NSMutableAttributedString.init(string: text)
+        
+        attributedStr.setAttributes([NSAttributedStringKey.font : 14.ts.font()], range: NSMakeRange(0, attributedStr.length))
+
+        TSLog(attributedStr.size())
+        
+        return attributedStr.size().width + 56.ts.scale()
+    }
     
     /// 指定父视图展示toast
     ///
@@ -139,7 +162,7 @@ open class TSToastDisplayControl: NSObject {
         //修改位置
         toastView.snp.remakeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.height.equalTo(30*UIScreen.main.bounds.size.width / 375.0)
+            make.height.equalTo(38.ts.scale())
             make.top.equalTo((toastView.superview?.snp.bottom)!)
         }
         toastView.superview?.layoutIfNeeded()
@@ -147,8 +170,8 @@ open class TSToastDisplayControl: NSObject {
         UIView.animate(withDuration: 0.5, animations: {
             self.toastView.snp.remakeConstraints { (make) in
                 make.centerX.equalToSuperview()
-                make.height.equalTo(30*UIScreen.main.bounds.size.width / 375.0)
-                make.centerY.equalToSuperview().multipliedBy(1.7)
+                make.height.equalTo(38.ts.scale())
+                make.centerY.equalToSuperview()
             }
             self.toastView.superview?.layoutIfNeeded()
         }) { (status) in
@@ -157,7 +180,7 @@ open class TSToastDisplayControl: NSObject {
                 
                 self.toastView.snp.remakeConstraints { (make) in
                     make.centerX.equalToSuperview()
-                    make.height.equalTo(20*UIScreen.main.bounds.size.width / 375.0)
+                    make.height.equalTo(38.ts.scale())
                     make.top.equalTo((self.toastView.superview?.snp.bottom)!)
                 }
                 self.toastView.superview?.layoutIfNeeded()
@@ -175,15 +198,15 @@ open class TSToastDisplayControl: NSObject {
         self.toastView.alpha = 0
         toastView.snp.remakeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.height.equalTo(30*UIScreen.main.bounds.size.width / 375.0)
+            make.height.equalTo(38.ts.scale())
             make.top.equalTo((toastView.superview?.snp.bottom)!)
         }
         toastView.superview?.layoutIfNeeded()
         UIView.animate(withDuration: 0.5, animations: {
             self.toastView.snp.remakeConstraints { (make) in
                 make.centerX.equalToSuperview()
-                make.height.equalTo(30*UIScreen.main.bounds.size.width / 375.0)
-                make.centerY.equalToSuperview().multipliedBy(1.7)
+                make.height.equalTo(38.ts.scale())
+                make.centerY.equalToSuperview()
             }
             self.toastView.superview?.layoutIfNeeded()
             self.toastView.alpha = 1
