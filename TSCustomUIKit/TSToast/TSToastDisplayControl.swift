@@ -81,7 +81,7 @@ open class TSToastDisplayControl: NSObject {
             }
             window?.addSubview(toastView)
         }
-        toastView.snp.makeConstraints { (make) in
+        toastView.snp.remakeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.height.equalTo(38.ts.scale())
             make.centerY.equalToSuperview()

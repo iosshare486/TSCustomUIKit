@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var i = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,8 +22,18 @@ class ViewController: UIViewController {
     }
 
     @objc func buttonClick() -> Void {
+        
+        if i == 0 {
+            
+            TSToastControl.showToast("w")
+        }else{
+            
+            TSToastControl.showToast("asdfadfasdfadfasdf")
+        }
+        
+        i = i + 1
 //        ts_toastControl.animationStyle = .upDownAndFade
-        TSToastControl.showToast("")
+//        TSToastControl.showToast("asdfadfasdfadfasdf")
     }
     
     override func didReceiveMemoryWarning() {
