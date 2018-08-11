@@ -140,9 +140,10 @@ public class TSSegmentedControl: UIView {
     /// 配置好configItem后，调用该方法安装segment
     public func segmentControlInstall() {
         
-        for subview in self.subviews {
+        for subview in self.mainView.subviews {
             subview.removeFromSuperview()
         }
+        self.buttonArray.removeAll()
         
         if let data = self.dataSource?.segmentedControlSetConfigItem?() {
             
