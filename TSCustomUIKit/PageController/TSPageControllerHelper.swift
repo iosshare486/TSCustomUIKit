@@ -47,7 +47,11 @@ public class TSPageControllerHelper: NSObject {
         parent.addChildViewController(pageViewController)
         pageViewController.didMove(toParentViewController: parent)
         self.viewControllers = controllers
-        pageViewController.setViewControllers([controllers[self.currentIndex]], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
+        if controllers.count > self.currentIndex {
+            pageViewController.setViewControllers([controllers[self.currentIndex]], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
+        }else {
+            TSLog("TSPageController: controllers 为空")
+        }
         return pageViewController
     }
     
@@ -56,12 +60,18 @@ public class TSPageControllerHelper: NSObject {
     /// - Parameter index: 位置下标
     public func pageViewControllerSelectIndex(index: Int) {
         
-        if index < currentIndex {
-            self.pageViewController.setViewControllers([self.viewControllers[index]], direction: UIPageViewControllerNavigationDirection.reverse, animated: true, completion: nil)
-        }else{
-            self.pageViewController.setViewControllers([self.viewControllers[index]], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
+        if index < self.viewControllers.count {
+            
+            if index < currentIndex {
+                self.pageViewController.setViewControllers([self.viewControllers[index]], direction: UIPageViewControllerNavigationDirection.reverse, animated: true, completion: nil)
+            }else{
+                self.pageViewController.setViewControllers([self.viewControllers[index]], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
+            }
+            self.currentIndex = index
+        }else {
+            TSLog("TSPageController: index 越界")
         }
-        self.currentIndex = index
+        
     }
 }
 
@@ -78,7 +88,14 @@ extension TSPageControllerHelper: UIPageViewControllerDelegate, UIPageViewContro
         
         index! += 1
         self.currentIndex = index!
-        return self.viewControllers[index!]
+        if index! < self.viewControllers.count {
+            
+            return self.viewControllers[index!]
+        }else {
+            
+            TSLog("TSPageController: index 越界")
+        }
+        return nil
     }
     
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -92,7 +109,14 @@ extension TSPageControllerHelper: UIPageViewControllerDelegate, UIPageViewContro
         
         index! -= 1
         self.currentIndex = index!
-        return self.viewControllers[index!]
+        if index! < self.viewControllers.count {
+            
+            return self.viewControllers[index!]
+        }else {
+            
+            TSLog("TSPageController: index 越界")
+        }
+        return nil
     }
     
     public func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
