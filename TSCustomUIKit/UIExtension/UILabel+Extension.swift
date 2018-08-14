@@ -33,6 +33,9 @@ public extension UILabel {
 
 public extension TSUIKit where TU: UILabel {
     
+    /// 设置间距
+    ///
+    /// - Parameter space: 间距
     public func setLineSpace(space: CGFloat) -> Void {
         
         let paraph = NSMutableParagraphStyle()
@@ -49,6 +52,11 @@ public extension TSUIKit where TU: UILabel {
 
 public extension TSUIKit where TU: UILabel {
     
+    /// 富文本
+    ///
+    /// - Parameters:
+    ///   - text: 数据
+    ///   - attributeParms: 模型数组
     public func attributeText(text: String, attributeParms: Array<TSAttributeTextParms>) {
         
         guard text.count > 0 else {
@@ -95,6 +103,13 @@ public extension TSUIKit where TU: UILabel {
         self.base.attributedText = attributeStr
     }
     
+    /// 根据标记改变文字颜色
+    ///
+    /// - Parameters:
+    ///   - text: 数据
+    ///   - beginTag: 开始标记
+    ///   - endTag: 结束标记
+    ///   - color: 颜色
     public func attributeText(text:String?, beginTag: String, endTag:String, color:UIColor) {
         
         guard text != nil && (text?.count)! > 0 else {
@@ -120,6 +135,13 @@ public extension TSUIKit where TU: UILabel {
         
     }
     
+    /// 将数组中每一元素组合生成字符串并根据是否含有标记判断色值
+    ///
+    /// - Parameters:
+    ///   - texts: 原数组
+    ///   - tag: 颜色标记
+    ///   - joinSeparate: 拼接字符串
+    ///   - color: 颜色
     public func attributeText(texts: [String], tag: String, joinSeparate:String, color: UIColor) {
         
         //先找到需要变色的item
@@ -138,6 +160,7 @@ public extension TSUIKit where TU: UILabel {
         self.attributeText(text: tempTexts.joined(separator: joinSeparate), beginTag: tag, endTag: "#", color: color)
     }
     
+    /// 获取起始标记的位置
     private func getRange(text:String, beginTag: String, endTag:String) -> Array<NSRange> {
         
         let str: NSMutableString = NSMutableString(string: text)
@@ -193,6 +216,7 @@ public extension TSUIKit where TU: UILabel {
     
 }
 
+/// 设置label富文本的数据模型
 public struct TSAttributeTextParms{
     
     public var range: NSRange?

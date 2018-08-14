@@ -11,7 +11,8 @@ import Kingfisher
 
 
 extension TSUIKit where TU: UIImageView {
-    //
+    
+    /// 设置图片
     public func setImage(url : String?) {
         
         guard let urlStr = url, urlStr.count > 1 else {
@@ -27,6 +28,11 @@ extension TSUIKit where TU: UIImageView {
         self.base.kf.setImage(with: res)
     }   
     
+    /// 设置图片
+    ///
+    /// - Parameters:
+    ///   - url: 图片地址
+    ///   - placeHolder: 默认图
     public func setImage(url : String?, placeHolder: UIImage) {
         
         guard let urlStr = url, urlStr.count > 1 else {
@@ -43,6 +49,32 @@ extension TSUIKit where TU: UIImageView {
         self.base.kf.setImage(with: res, placeholder: placeHolder, options: nil, progressBlock: nil, completionHandler: nil)
     }
     
+    /// 设置圆角图片
+    ///
+    /// - Parameters:
+    ///   - urlString: 图片地址
+    ///   - corner: 圆角大小
+    ///   - imageSize: 期望获取到的图片大小
+    ///   - placeHolder: 默认图片
+    public func setImagea(urlString: String?, corner: CGFloat, imageSize: CGSize? = nil, placeHolder: UIImage? = nil) {
+        
+        guard let url = URL(string: urlString!) else {
+            self.base.image = placeHolder
+            return
+        }
+        let resource = ImageResource.init(downloadURL: url)
+        let cache = KingfisherManager.shared.cache
+        let optionsInfo = [KingfisherOptionsInfoItem.transition(ImageTransition.fade(0.1)), KingfisherOptionsInfoItem.targetCache(cache), KingfisherOptionsInfoItem.processor(RoundCornerImageProcessor(cornerRadius: corner, targetSize: imageSize))]
+        self.base.kf.setImage(with: resource, placeholder: placeHolder, options: optionsInfo, progressBlock: nil, completionHandler: nil)
+    }
+    
+    /// 设置图片
+    ///
+    /// - Parameters:
+    ///   - url: 图片地址
+    ///   - placeHolder: 默认图
+    ///   - progressBlock: 图片加载进度
+    ///   - completionBlock: 完成回调
     public func setImage(url : String?, placeHolder: UIImage?, progressBlock : ((_ receivedSize: Int64, _ totalSize: Int64) -> Void)?, completionBlock : ((_ image: Image?, _ error: NSError?) -> Void)? ) {
         
         guard let urlStr = url, urlStr.count > 1 else {
@@ -63,6 +95,9 @@ extension TSUIKit where TU: UIImageView {
         }
     }
     
+    /// 设置gif图
+    ///
+    /// - Parameter name: 图片名称
     public func setGifImage(name : String) -> Void {
         DispatchQueue.global().async {
             let image = UIImage.gif(name: name)
