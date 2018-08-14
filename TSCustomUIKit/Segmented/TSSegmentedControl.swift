@@ -156,6 +156,8 @@ public class TSSegmentedControl: UIView {
     
     public override func layoutSubviews() {
         
+        super.layoutSubviews()
+        self.layoutIfNeeded()
         mainScorllView.contentSize = mainView.frame.size
     }
     
