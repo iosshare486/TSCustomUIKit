@@ -229,3 +229,30 @@ open class TSToastDisplayControl: NSObject {
     }
     
 }
+
+
+public extension UIView {
+    
+    public func ts_toast(content:String) {
+        TSToastControl.showToast(onSpecificView: self, content: content)
+    }
+    public func ts_toast(content:String, animation:TSToastAnimationStyle?, backgroundColor:UIColor?,cornerRadius:CGFloat?) {
+        if content.count > 0 {
+            if animation != nil {
+                TSToastControl.animationStyle = animation!
+            }
+            if backgroundColor != nil {
+                TSToastControl.toastBackgroundColor = backgroundColor!
+            }
+            if (cornerRadius! > 0 && cornerRadius != nil) {
+                TSToastControl.tostViewCornerRadius = cornerRadius!
+            }
+            TSToastControl.showToast(onSpecificView: self, content: content)
+        }
+    }
+    
+    
+    
+}
+
+
