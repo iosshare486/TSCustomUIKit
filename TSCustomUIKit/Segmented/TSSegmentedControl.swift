@@ -68,7 +68,7 @@ public protocol TSSegmentedControlDelegate : class {
     /// - Parameter index: 位置下标
     /// - Returns: size
     @objc optional func segmentedControlItemSize(index: Int) -> CGSize
-
+    
     /// 间距
     ///
     /// - Parameter index: 位置下标
@@ -345,6 +345,7 @@ extension TSSegmentedControl {
                     btn.titleLabel?.font = font
                 }
             }
+            self.layoutIfNeeded()
         }
         
         scrollLine.snp.remakeConstraints { (make) in
@@ -360,13 +361,33 @@ extension TSSegmentedControl {
                 self.layoutIfNeeded()
             }
         }
+        let index = btn.tag
+        var rightItemspace:CGFloat = 0
+        if index == self.buttonArray.count {
+            
+            rightItemspace = self.dataSource?.segmentedControlRightSpace?() ?? 0
+        }else {
+            
+            rightItemspace = self.dataSource?.segmentedControlItemSpace?(index: index) ?? 0
+            rightItemspace = rightItemspace / 2.0
+        }
         
-        if ((btn.frame.maxX - self.frame.width) > mainScorllView.contentOffset.x){
+        var leftItemspace:CGFloat = 0
+        if index == 0 {
             
-            mainScorllView.setContentOffset(CGPoint(x: (btn.frame.maxX - self.frame.width), y: 0), animated: true)
-        }else if (mainScorllView.contentOffset.x > btn.frame.minX) {
+            leftItemspace = self.dataSource?.segmentedControlLeftSpace?() ?? 0
+        }else {
             
-            mainScorllView.setContentOffset(CGPoint(x: btn.frame.minX, y: 0), animated: true)
+            leftItemspace = self.dataSource?.segmentedControlItemSpace?(index: index) ?? 0
+            leftItemspace = leftItemspace / 2.0
+        }
+        
+        if ((btn.frame.maxX + rightItemspace - self.frame.width) > mainScorllView.contentOffset.x){
+            
+            mainScorllView.setContentOffset(CGPoint(x: (btn.frame.maxX + rightItemspace - self.frame.width), y: 0), animated: true)
+        }else if (mainScorllView.contentOffset.x > (btn.frame.minX - leftItemspace)) {
+            
+            mainScorllView.setContentOffset(CGPoint(x: btn.frame.minX - leftItemspace, y: 0), animated: true)
         }
     }
 }
