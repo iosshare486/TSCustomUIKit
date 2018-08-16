@@ -12,6 +12,7 @@
 		D42ABC9820FEF03800EFD97B /* TSUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42ABC9520FEF03800EFD97B /* TSUIKit.swift */; };
 		D42ABC9920FEF03800EFD97B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42ABC9620FEF03800EFD97B /* UIView+Extension.swift */; };
 		D42ABC9A20FEF03800EFD97B /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42ABC9720FEF03800EFD97B /* UILabel+Extension.swift */; };
+		D43A976521257B460066029F /* TSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43A976421257B460066029F /* TSTextField.swift */; };
 		D49432F22111DC410087F0C2 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49432F12111DC410087F0C2 /* UITextField+Extension.swift */; };
 		DA49DEC69D924067B335A57A /* Pods_TSCustomUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A2A3926422563394FE49FD /* Pods_TSCustomUIKit.framework */; };
 		E573579E5FC0A23A04DE17F8 /* Pods_TSCustomUIKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69AC087D5F175A29E247B987 /* Pods_TSCustomUIKitTests.framework */; };
@@ -76,6 +77,7 @@
 		D42ABC9520FEF03800EFD97B /* TSUIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSUIKit.swift; sourceTree = "<group>"; };
 		D42ABC9620FEF03800EFD97B /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D42ABC9720FEF03800EFD97B /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		D43A976421257B460066029F /* TSTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSTextField.swift; sourceTree = "<group>"; };
 		D49432F12111DC410087F0C2 /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		F557295A20FE032100C30437 /* TSKeyBoardToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSKeyBoardToolBar.swift; sourceTree = "<group>"; };
 		F558F3482122B28E0080BCA2 /* UIImageView+TSUIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+TSUIKit.swift"; sourceTree = "<group>"; };
@@ -172,6 +174,14 @@
 			path = TSToast;
 			sourceTree = "<group>";
 		};
+		D43A976321257B460066029F /* TSTextfield */ = {
+			isa = PBXGroup;
+			children = (
+				D43A976421257B460066029F /* TSTextField.swift */,
+			);
+			path = TSTextfield;
+			sourceTree = "<group>";
+		};
 		F557295720FE02E500C30437 /* KeyBoardBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +224,7 @@
 				F55F113420FB24DA0003588E /* TSTabbarController */,
 				F55F114320FB24DA0003588E /* UIExtension */,
 				F557295720FE02E500C30437 /* KeyBoardBar */,
+				D43A976321257B460066029F /* TSTextfield */,
 				B241CB4621087BF900AB6F03 /* TSToast */,
 				F55F110220FB24A40003588E /* AppDelegate.swift */,
 				F55F110420FB24A40003588E /* ViewController.swift */,
@@ -552,6 +563,7 @@
 				D42ABC9820FEF03800EFD97B /* TSUIKit.swift in Sources */,
 				F55F114920FB24DB0003588E /* TSRPhotoBrowserCollectionViewCell.swift in Sources */,
 				F55F114C20FB24DB0003588E /* TSTabBar.swift in Sources */,
+				D43A976521257B460066029F /* TSTextField.swift in Sources */,
 				F55F114B20FB24DB0003588E /* TSRPhotoBrowserView.swift in Sources */,
 				F55F115820FB24DB0003588E /* TSSegmentedControl.swift in Sources */,
 				F557295B20FE032100C30437 /* TSKeyBoardToolBar.swift in Sources */,

@@ -59,6 +59,11 @@ open class TSTextField: UITextField, UITextFieldDelegate {
      */
     public var isEligible = false
     
+    /**
+     是否允许输入非法字符
+     */
+    public var allowInputIllegal = false
+    
     override public init(frame: CGRect) {
         super.init(frame: frame)
         //关闭输入框提示，首字母大写功能
@@ -146,6 +151,11 @@ open class TSTextField: UITextField, UITextFieldDelegate {
                 if proposeLength > masNums {
                     return false
                 }
+            }
+            
+            if !isOnlyNumberAndEnglish(str: string) && !self.allowInputIllegal {
+                
+                return false
             }
             return true
         case .tsTextFieldOnlyNumberType(let rangeLimit):
