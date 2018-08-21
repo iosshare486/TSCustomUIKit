@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import TSRefresh
+
 
 public struct TSTableViewStyle: OptionSet {
     
@@ -61,14 +61,14 @@ public class TSTableView: UITableView {
         self.backgroundColor = .white
         
         if createStyle.contains(.refresh) || createStyle.contains(.all) {
-            self.ts_addRefreshAction {
-                refresh()
-            }
+//            self.ts_addRefreshAction {
+//                refresh()
+//            }
         }
         if createStyle.contains(.loading) || createStyle.contains(.all)  {
-            self.ts_addLoadMoreAction {
-                loading()
-            }
+//            self.ts_addLoadMoreAction {
+//                loading()
+//            }
         }
         if createStyle.contains(.initCell) || createStyle.contains(.all)  {
             self.initCell = initCell

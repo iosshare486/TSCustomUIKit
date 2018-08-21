@@ -47,7 +47,6 @@ end
 
 s.subspec 'TableView' do |ss|
 ss.source_files = 'TSCustomUIKit/TableView/*'
-ss.dependency 'TSRefresh'
 end
 
 s.subspec 'TSRPhotoBrowser' do |ss|
