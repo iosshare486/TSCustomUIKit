@@ -12,7 +12,7 @@ target 'TSCustomUIKit' do
   pod 'TSUtility'
   pod 'SnapKit'
   pod 'Kingfisher'
-  pod 'TSRefresh'
+#  pod 'TSRefresh'
 
   # Pods for TSCustomUIKit
 
