@@ -66,7 +66,11 @@ open class TSTabBarConfig: NSObject {
     private(set) var selImageArr : Array<UIImage> = []
     
     
+    //tabbar item 点击 回传当前已选index 和 即将选择的 item
     public var ts_tabbarSelect : ((_ selectedIndex: Int?, _ willSelected: Int?)->Void)?
+    
+    //tabbar item 点击 回传当前已选index 和 即将选择的 item
+    public var ts_tabbarSelectSameItem : ((_ selectedIndex: Int?)->Void)?
     
     
     public func setTypeLayout(typeLayout: TSConfigTypeLayout) {
@@ -333,9 +337,6 @@ open class TSTabBarConfig: NSObject {
 public extension TSTabBarConfig{
     public func getTabBarVC() -> TSTabbarViewController {
         self.tabBarController = TSTabbarViewController().initWithTabBarControllers()
-        if self.ts_tabbarSelect != nil {
-            self.tabBarController?.ts_tabbarSelect = self.ts_tabbarSelect
-        }
         return self.tabBarController!
         
     }
