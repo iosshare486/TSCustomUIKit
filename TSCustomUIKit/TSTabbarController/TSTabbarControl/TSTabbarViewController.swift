@@ -11,6 +11,7 @@ import UIKit
 open class TSTabbarViewController: UITabBarController {
     
     public var ts_tabBar = TSTabBar()
+    public var ts_tabbarSelect : ((_ selectedIndex: Int?, _ willSelected: Int?)->Void)?
     
     func initWithTabBarControllers() -> TSTabbarViewController {
         self.viewControllers = ts_tabbar_config.controllersArr;
@@ -69,6 +70,9 @@ open class TSTabbarViewController: UITabBarController {
 
 extension TSTabbarViewController : TSTabBarDelegate{
     func tabbarDidSelectIndex(tabbar: TSTabBar, selectIndex: NSInteger) {
+        if self.ts_tabbarSelect != nil {
+            self.ts_tabbarSelect!(tabbar.selectedIndex, selectedIndex)
+        }
         self.selectedIndex = selectIndex;
     }
 }

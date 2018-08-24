@@ -66,6 +66,9 @@ open class TSTabBarConfig: NSObject {
     private(set) var selImageArr : Array<UIImage> = []
     
     
+    public var ts_tabbarSelect : ((_ selectedIndex: Int?, _ willSelected: Int?)->Void)?
+    
+    
     public func setTypeLayout(typeLayout: TSConfigTypeLayout) {
         self.typeLayout = typeLayout
     }
@@ -330,6 +333,9 @@ open class TSTabBarConfig: NSObject {
 public extension TSTabBarConfig{
     public func getTabBarVC() -> TSTabbarViewController {
         self.tabBarController = TSTabbarViewController().initWithTabBarControllers()
+        if self.ts_tabbarSelect != nil {
+            self.tabBarController?.ts_tabbarSelect = self.ts_tabbarSelect
+        }
         return self.tabBarController!
         
     }
