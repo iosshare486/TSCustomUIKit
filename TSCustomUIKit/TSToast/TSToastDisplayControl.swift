@@ -43,6 +43,9 @@ open class TSToastDisplayControl: NSObject {
         }
     }
     
+    private let textColor = UIColor.white
+    private let textBackgroundColor = "#000000".ts.color(0.6)
+    
     private var toastView = UILabel()
     
     class func sharedInstance() -> TSToastDisplayControl {
@@ -55,11 +58,11 @@ open class TSToastDisplayControl: NSObject {
     func configToastView() {
         toastView.alpha = 0
         toastView.font = 14.ts.font()
-        toastView.backgroundColor = "#000000".ts.color(0.6)
+        toastView.backgroundColor = textBackgroundColor
         toastView.textAlignment = .center
         toastView.layer.masksToBounds = true
         toastView.layer.cornerRadius = tostViewCornerRadius 
-        toastView.textColor = .white
+        toastView.textColor = textColor
     }
     
     /// 默认展示到window上
@@ -71,7 +74,7 @@ open class TSToastDisplayControl: NSObject {
             return
         }
         
-        toastView.text = content
+        toastView.text = toastText
         toastView.layer.cornerRadius = CGFloat(tostViewCornerRadius)
         
         if toastView.superview == nil {
@@ -90,6 +93,21 @@ open class TSToastDisplayControl: NSObject {
         needShowToast()
     }
     
+    /**
+     指定文字颜色、背景颜色
+     */
+    public func showToast(_ content: String?, textColor: UIColor, backgroundColor: UIColor) {
+        
+        guard let toastText = content, toastText.count > 0 else {
+            return
+        }
+        
+        toastView.textColor = textColor
+        toastView.backgroundColor = backgroundColor
+        
+        showToast(toastText)
+    }
+    
     func getTextWidth(text: String) -> CGFloat {
         
         let attributedStr: NSMutableAttributedString = NSMutableAttributedString.init(string: text)
@@ -106,23 +124,25 @@ open class TSToastDisplayControl: NSObject {
     /// - Parameters:
     ///   - onSpecificView: 父视图
     ///   - content: toast 文案
-    public func showToast(onSpecificView: UIView, content: String)  {
+    public func showToast(onSpecificView: UIView?, content: String?)  {
         if onSpecificView == nil {
             return
         }
-        if content.count == 0 {
+        guard let toastText = content, toastText.count > 0 else {
             return
         }
-        toastView.text = " " + content + " "
+
+        toastView.text = toastText
         toastView.layer.cornerRadius = CGFloat(tostViewCornerRadius)
         if toastView.superview != nil {
             toastView.removeFromSuperview()
         }
-        onSpecificView.addSubview(toastView)
-        toastView.snp.makeConstraints { (make) in
+        onSpecificView?.addSubview(toastView)
+        toastView.snp.remakeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.height.equalTo(30*UIScreen.main.bounds.size.width / 375.0)
-            make.centerY.equalToSuperview().multipliedBy(1.7)
+            make.height.equalTo(38.ts.scale())
+            make.centerY.equalToSuperview()
+            make.width.equalTo(self.getTextWidth(text: toastText))
         }
         needShowToast()
     }
@@ -155,6 +175,8 @@ open class TSToastDisplayControl: NSObject {
                 self.toastView.alpha = 0
             }, completion: { (status) in
                 self.toastView.removeFromSuperview()
+                self.toastView.textColor = self.textColor
+                self.toastView.backgroundColor = self.textBackgroundColor
             })
         }
     }
