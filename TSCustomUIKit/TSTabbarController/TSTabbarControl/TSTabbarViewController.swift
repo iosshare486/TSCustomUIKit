@@ -70,8 +70,9 @@ open class TSTabbarViewController: UITabBarController {
 
 extension TSTabbarViewController : TSTabBarDelegate{
     func tabbarDidSelectIndex(tabbar: TSTabBar, selectIndex: NSInteger) {
-        if self.ts_tabbarSelect != nil {
-            self.ts_tabbarSelect!(tabbar.selectedIndex, selectedIndex)
+        ts_tabbar_config.ts_tabbarSelect?(self.selectedIndex, selectIndex)
+        if self.selectedIndex == selectIndex {
+            ts_tabbar_config.ts_tabbarSelectSameItem?(selectIndex)
         }
         self.selectedIndex = selectIndex;
     }
