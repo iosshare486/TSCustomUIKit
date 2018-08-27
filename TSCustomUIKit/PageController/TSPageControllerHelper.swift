@@ -34,7 +34,7 @@ public class TSPageControllerHelper: NSObject {
     ///   - controllers: 子控制器数组
     ///   - parent: 父控制器
     /// - Returns: pageViewController
-    public func createPageViewController(_ controllers: [UIViewController], parent: UIViewController)-> UIPageViewController {
+    public func createPageViewController(_ controllers: [UIViewController], parent: UIViewController, defaultIndex: Int = 0)-> UIPageViewController {
         
         pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.horizontal)
         pageViewController.dataSource = self
@@ -44,11 +44,12 @@ public class TSPageControllerHelper: NSObject {
         }else {
             TSLog("TSPageContainerHelper: parent is not TSPageViewControllerDelegate")
         }
+        self.currentIndex = defaultIndex
         parent.addChildViewController(pageViewController)
         pageViewController.didMove(toParentViewController: parent)
         self.viewControllers = controllers
         if controllers.count > self.currentIndex {
-            pageViewController.setViewControllers([controllers[self.currentIndex]], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
+            pageViewController.setViewControllers([controllers[self.currentIndex]], direction: UIPageViewControllerNavigationDirection.forward, animated: false, completion: nil)
         }else {
             TSLog("TSPageController: controllers 为空")
         }
@@ -73,6 +74,45 @@ public class TSPageControllerHelper: NSObject {
         }
         
     }
+    
+    /// 配置默认项
+    ///
+    /// - Parameter index: 位置下标
+    public func pageViewControllerDefaultIndex(index: Int) {
+        
+        if index < self.viewControllers.count {
+            
+            self.pageViewController.setViewControllers([self.viewControllers[index]], direction: UIPageViewControllerNavigationDirection.forward, animated: false, completion: nil)
+            self.currentIndex = index
+        }else {
+            TSLog("TSPageController: index 越界")
+        }
+        
+    }
+    
+    /// 获取当前下标
+    ///
+    /// - Returns: 下标
+    public func getCurrentIndex() -> Int {
+        return self.currentIndex
+    }
+    
+    
+    /// 获取当前vc
+    ///
+    /// - Returns: vc
+    public func getCurrentController() -> UIViewController? {
+        
+        if self.viewControllers.count > self.currentIndex {
+        
+            return self.viewControllers[self.currentIndex]
+        }else {
+            TSLog("TSPageController: 当前VC不存在")
+            return nil
+        }
+        
+    }
+    
 }
 
 extension TSPageControllerHelper: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
