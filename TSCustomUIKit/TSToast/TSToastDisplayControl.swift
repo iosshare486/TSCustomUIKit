@@ -46,6 +46,8 @@ open class TSToastDisplayControl: NSObject {
     private let textColor = UIColor.white
     private let textBackgroundColor = "#000000".ts.color(0.6)
     
+    private var isShowing: Bool = false
+    
     private var toastView = UILabel()
     
     class func sharedInstance() -> TSToastDisplayControl {
@@ -164,19 +166,51 @@ open class TSToastDisplayControl: NSObject {
     }
     
     
+//    /// 单纯的渐隐渐显动画
+//    func startAnimationWithFadeStyle(){
+//    
+//        UIView.animate(withDuration: 0.3, animations: {
+//            self.toastView.alpha = 1
+//        }) { (status) in
+//        
+//            UIView.animate(withDuration: 0.3, delay: 1.5, options: .curveLinear, animations: {
+//                self.toastView.alpha = 0
+//            }, completion: { (status) in
+//                self.toastView.removeFromSuperview()
+//                self.toastView.textColor = self.textColor
+//                self.toastView.backgroundColor = self.textBackgroundColor
+//            })
+//        }
+//    }
+    
     /// 单纯的渐隐渐显动画
     func startAnimationWithFadeStyle(){
+
+        if self.isShowing {
+            
+            self.toastView.layer.removeAllAnimations()
+        }
+        
+        self.isShowing = true
     
         UIView.animate(withDuration: 0.3, animations: {
+            
             self.toastView.alpha = 1
         }) { (status) in
-        
+            
             UIView.animate(withDuration: 0.3, delay: 1.5, options: .curveLinear, animations: {
                 self.toastView.alpha = 0
+                
             }, completion: { (status) in
-                self.toastView.removeFromSuperview()
-                self.toastView.textColor = self.textColor
-                self.toastView.backgroundColor = self.textBackgroundColor
+                
+                if status {
+                    
+                    self.toastView.removeFromSuperview()
+                    self.toastView.textColor = self.textColor
+                    self.toastView.backgroundColor = self.textBackgroundColor
+                    
+                    self.isShowing = false
+                }
             })
         }
     }
