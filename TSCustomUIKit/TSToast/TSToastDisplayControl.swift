@@ -116,7 +116,7 @@ open class TSToastDisplayControl: NSObject {
         
         attributedStr.setAttributes([NSAttributedStringKey.font : 14.ts.font()], range: NSMakeRange(0, attributedStr.length))
 
-        TSLog(attributedStr.size())
+//        TSLog(attributedStr.size())
         
         return attributedStr.size().width + 56.ts.scale()
     }
