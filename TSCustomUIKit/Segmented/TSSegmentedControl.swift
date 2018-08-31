@@ -240,7 +240,7 @@ extension TSSegmentedControl {
         }
         bottomLine.snp.makeConstraints { (make) in
             make.bottom.left.right.equalToSuperview()
-            make.height.equalTo(0.5)
+            make.height.equalTo(1)
         }
     }
     
