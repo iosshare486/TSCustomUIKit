@@ -9,7 +9,7 @@ target 'TSCustomUIKit' do
   use_frameworks!
 
 
-  pod 'TSUtility'
+    pod 'TSUtility' , :git=>'git@gitlab.caiqr.com:ios_module/TSUtility.git'
   pod 'SnapKit'
   pod 'Kingfisher'
 #  pod 'TSRefresh'

@@ -18,14 +18,16 @@ extension TSUIKit where TU: UIImageView {
         guard let urlStr = url, urlStr.count > 1 else {
             return
         }
-        
-        guard let url = URL(string: urlStr) else {
-            return
+        if let url = URL(string: urlStr) {
+            let res : ImageResource = ImageResource(downloadURL: url)
+            self.base.kf.setImage(with: res)
+        } else if let tmp = urlStr.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed), let tmpUrl = URL(string: tmp){
+            //兼容H5图片显示
+            let res : ImageResource = ImageResource(downloadURL: tmpUrl)
+            self.base.kf.setImage(with: res)
+        } else {
+            
         }
-        
-        let res : ImageResource = ImageResource(downloadURL: url)
-        
-        self.base.kf.setImage(with: res)
     }   
     
     /// 设置图片
@@ -40,13 +42,16 @@ extension TSUIKit where TU: UIImageView {
             return
         }
         
-        guard let url = URL(string: urlStr) else {
-            return
+        if let url = URL(string: urlStr) {
+            let res : ImageResource = ImageResource(downloadURL: url)
+            self.base.kf.setImage(with: res, placeholder: placeHolder, options: nil, progressBlock: nil, completionHandler: nil)
+        } else if let tmp = urlStr.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed), let tmpUrl = URL(string: tmp){
+            //兼容H5图片显示
+            let res : ImageResource = ImageResource(downloadURL: tmpUrl)
+            self.base.kf.setImage(with: res, placeholder: placeHolder, options: nil, progressBlock: nil, completionHandler: nil)
+        } else {
+            
         }
-        
-        let res : ImageResource = ImageResource(downloadURL: url)
-        
-        self.base.kf.setImage(with: res, placeholder: placeHolder, options: nil, progressBlock: nil, completionHandler: nil)
     }
     
     /// 设置圆角图片
@@ -58,14 +63,25 @@ extension TSUIKit where TU: UIImageView {
     ///   - placeHolder: 默认图片
     public func setImagea(urlString: String?, corner: CGFloat, imageSize: CGSize? = nil, placeHolder: UIImage? = nil) {
         
-        guard let url = URL(string: urlString!) else {
+        guard let urlStr = urlString, urlStr.count > 1 else {
             self.base.image = placeHolder
             return
         }
-        let resource = ImageResource.init(downloadURL: url)
-        let cache = KingfisherManager.shared.cache
-        let optionsInfo = [KingfisherOptionsInfoItem.transition(ImageTransition.fade(0.1)), KingfisherOptionsInfoItem.targetCache(cache), KingfisherOptionsInfoItem.processor(RoundCornerImageProcessor(cornerRadius: corner, targetSize: imageSize))]
-        self.base.kf.setImage(with: resource, placeholder: placeHolder, options: optionsInfo, progressBlock: nil, completionHandler: nil)
+        
+        if let url = URL(string: urlStr) {
+            let resource = ImageResource.init(downloadURL: url)
+            let cache = KingfisherManager.shared.cache
+            let optionsInfo = [KingfisherOptionsInfoItem.transition(ImageTransition.fade(0.1)), KingfisherOptionsInfoItem.targetCache(cache), KingfisherOptionsInfoItem.processor(RoundCornerImageProcessor(cornerRadius: corner, targetSize: imageSize))]
+            self.base.kf.setImage(with: resource, placeholder: placeHolder, options: optionsInfo, progressBlock: nil, completionHandler: nil)
+        } else if let tmp = urlStr.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed), let tmpUrl = URL(string: tmp){
+            //兼容H5图片显示
+            let resource = ImageResource.init(downloadURL: tmpUrl)
+            let cache = KingfisherManager.shared.cache
+            let optionsInfo = [KingfisherOptionsInfoItem.transition(ImageTransition.fade(0.1)), KingfisherOptionsInfoItem.targetCache(cache), KingfisherOptionsInfoItem.processor(RoundCornerImageProcessor(cornerRadius: corner, targetSize: imageSize))]
+            self.base.kf.setImage(with: resource, placeholder: placeHolder, options: optionsInfo, progressBlock: nil, completionHandler: nil)
+        } else {
+            
+        }
     }
     
     /// 设置图片
@@ -78,20 +94,29 @@ extension TSUIKit where TU: UIImageView {
     public func setImage(url : String?, placeHolder: UIImage?, progressBlock : ((_ receivedSize: Int64, _ totalSize: Int64) -> Void)?, completionBlock : ((_ image: Image?, _ error: NSError?) -> Void)? ) {
         
         guard let urlStr = url, urlStr.count > 1 else {
+            self.base.image = placeHolder
             return
         }
         
-        guard let url = URL(string: urlStr) else {
-            return
-        }
-        
-        let res : ImageResource = ImageResource(downloadURL: url)
-        
-        self.base.kf.setImage(with: res, placeholder: placeHolder, options: nil, progressBlock: progressBlock) { (image, error, _, _) in
-            self.base.image = image
-            if (completionBlock != nil) {
-                completionBlock!(image,error)
+        if let url = URL(string: urlStr) {
+            let res : ImageResource = ImageResource(downloadURL: url)
+            self.base.kf.setImage(with: res, placeholder: placeHolder, options: nil, progressBlock: progressBlock) { (image, error, _, _) in
+                self.base.image = image
+                if (completionBlock != nil) {
+                    completionBlock!(image,error)
+                }
             }
+        } else if let tmp = urlStr.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed), let tmpUrl = URL(string: tmp){
+            //兼容H5图片显示
+            let res : ImageResource = ImageResource(downloadURL: tmpUrl)
+            self.base.kf.setImage(with: res, placeholder: placeHolder, options: nil, progressBlock: progressBlock) { (image, error, _, _) in
+                self.base.image = image
+                if (completionBlock != nil) {
+                    completionBlock!(image,error)
+                }
+            }
+        } else {
+            
         }
     }
     

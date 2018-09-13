@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     var i = 0
-    
+    var inputTextView = TSTextFieldView.init(frame: .zero)
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,6 +19,21 @@ class ViewController: UIViewController {
         button.backgroundColor = UIColor.red
         button.addTarget(self, action: #selector(buttonClick), for: UIControlEvents.touchUpInside)
         self.view.addSubview(button)
+        inputTextView.limitEmoji = true
+//        inputTextView.limitMarkChar = true
+        inputTextView.textColor = .red
+        inputTextView.limitLenght = 10
+        inputTextView.backgroundColor = .cyan
+        view.addSubview(inputTextView)
+        inputTextView.snp.makeConstraints { (make) in
+            make.top.equalTo(200)
+            make.width.equalTo(200)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(50.ts.scale())
+        }
+        let aaa = "123123444".dropLast(100)
+        
+        print("\(aaa)")
     }
 
     @objc func buttonClick() -> Void {

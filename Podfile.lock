@@ -6,20 +6,27 @@ PODS:
 DEPENDENCIES:
   - Kingfisher
   - SnapKit
-  - TSUtility
+  - "TSUtility (from `git@gitlab.caiqr.com:ios_module/TSUtility.git`)"
 
 SPEC REPOS:
-  http://gitlab.caiqr.com/zhangjunjie/ExchangePodSpecs.git:
-    - TSUtility
   https://github.com/cocoapods/specs.git:
     - Kingfisher
     - SnapKit
 
+EXTERNAL SOURCES:
+  TSUtility:
+    :git: "git@gitlab.caiqr.com:ios_module/TSUtility.git"
+
+CHECKOUT OPTIONS:
+  TSUtility:
+    :commit: d240fe4b83d239e4d25ea36c202cc41435dfcf7a
+    :git: "git@gitlab.caiqr.com:ios_module/TSUtility.git"
+
 SPEC CHECKSUMS:
   Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  TSUtility: e4227ac9d5d2f6f6a629eead65dc628883ced2d0
+  TSUtility: 95aefc7dc861c315c38266c5fa7f3cc49d2c4498
 
-PODFILE CHECKSUM: a806fe9f0bf1e943eb387d2310aa878c58e3678a
+PODFILE CHECKSUM: cd038722be8e308776eb6ae6bc91244eb8fbb82a
 
 COCOAPODS: 1.5.2

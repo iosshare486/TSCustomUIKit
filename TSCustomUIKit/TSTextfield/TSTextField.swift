@@ -8,43 +8,6 @@
 
 import UIKit
 
-@objc public protocol tsTextfieldProtocol {
-    //是否合法的回调
-    @objc optional func eligibleStatusCallBack (textField: UITextField, status : Bool)
-    
-    @objc optional func tsTextFieldShouldBeginEditing(_ textField: UITextField) -> Bool
-    
-    @objc optional func tsTextFieldDidBeginEditing(_ textField: UITextField)
-    
-    @objc optional func tsTextFieldShouldEndEditing(_ textField: UITextField) -> Bool
-    
-    @objc optional func tsTextFieldDidEndEditing(_ textField: UITextField)
-    
-    @objc optional func tsTextFieldShouldClear(_ textField: UITextField) -> Bool
-    
-    @objc optional func tsTextFieldShouldReturn(_ textField: UITextField) -> Bool
-    
-}
-
-public enum TSTextFieldLimitType {
-    case tsTextFieldPhoneNumberType(insertSpace : Bool)         //手机号
-    case tsTextFieldEmailType               //邮箱
-    case tsTextFieldIDCardType              //身份证
-    case tsTextFieldCardCodeType            //银行卡号
-    case tsTextFieldWordAndNumberType(range : tsTextFieldLimitRange)            //字母与数字
-    case tsTextFieldOnlyNumberType(range : tsTextFieldLimitRange) //纯数字
-    
-}
-
-public struct tsTextFieldLimitRange {
-    public init(minNum : Int,maxNum : Int) {
-        self.maxNum = maxNum < minNum ? minNum : maxNum
-        self.minNum = minNum
-    }
-    public var minNum : Int?
-    public var maxNum : Int?
-}
-
 open class TSTextField: UITextField, UITextFieldDelegate {
     
     public var tsTextfieldDelegate: tsTextfieldProtocol?
@@ -98,7 +61,7 @@ open class TSTextField: UITextField, UITextFieldDelegate {
     //结束编辑
     @available(iOS 10.0, *)
     public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        self.tsTextfieldDelegate?.tsTextFieldDidEndEditing?(textField)
+        self.tsTextfieldDelegate?.tsTextFieldDidEndEditing?(textField, reason: reason)
     }
     
     public func textFieldShouldClear(_ textField: UITextField) -> Bool {
@@ -170,6 +133,12 @@ open class TSTextField: UITextField, UITextFieldDelegate {
             }
         
             return true
+        case .tsTextFieldCustomLimit(let limit):
+            if limit.customLimit != nil {
+                return limit.customLimit!()
+            } else {
+                return true
+            }
         }
     }
     
@@ -201,6 +170,14 @@ open class TSTextField: UITextField, UITextFieldDelegate {
                 }
             case .tsTextFieldEmailType:
                 isEligible = isValidateEmail(str: self.text ?? "")
+            
+            case .tsTextFieldCustomLimit(let range):
+                if range.customLimit != nil {
+                    isEligible = range.customLimit!()
+                } else {
+                    isEligible = false
+                }
+
             case .tsTextFieldIDCardType:
                 isEligible = false
                 if let stringCount = self.text?.count {
