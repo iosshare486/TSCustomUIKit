@@ -29,7 +29,7 @@ public extension TSUIKit where TU: UITextView {
      */
     public func setHTMLText(text: String) -> Void {
         
-        if let data = msg.data(using: String.Encoding.unicode) {
+        if let data = text.data(using: String.Encoding.unicode) {
             do {
                 let attribute = try NSAttributedString(data: data, options: [.documentType:NSAttributedString.DocumentType.html], documentAttributes: nil)
                 
