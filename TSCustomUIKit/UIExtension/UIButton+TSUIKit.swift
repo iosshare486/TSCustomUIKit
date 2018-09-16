@@ -99,7 +99,7 @@ extension TSUIKit where TU: UIButton {
         if let data = text.data(using: String.Encoding.unicode) {
             do {
                 let attribute = try NSAttributedString(data: data, options: [.documentType:NSAttributedString.DocumentType.html], documentAttributes: nil)
-                self.setAttributedTitle(attribute, for: state)
+                self.base.setAttributedTitle(attribute, for: state)
                 
             } catch {
                 

@@ -1,5 +1,5 @@
 PODS:
-  - Kingfisher (4.8.1)
+  - Kingfisher (4.9.0)
   - SnapKit (4.0.0)
   - TSUtility (1.0.3)
 
@@ -19,14 +19,14 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   TSUtility:
-    :commit: d240fe4b83d239e4d25ea36c202cc41435dfcf7a
+    :commit: 89b14c90f8efdeef84123505196adb8f6490fc21
     :git: "git@gitlab.caiqr.com:ios_module/TSUtility.git"
 
 SPEC CHECKSUMS:
-  Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
+  Kingfisher: 64539b51826b778206daa6ed815d12653caa69dd
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   TSUtility: 95aefc7dc861c315c38266c5fa7f3cc49d2c4498
 
 PODFILE CHECKSUM: cd038722be8e308776eb6ae6bc91244eb8fbb82a
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3
