@@ -33,7 +33,7 @@ public extension TSUIKit where TU: UITextView {
             do {
                 let attribute = try NSAttributedString(data: data, options: [.documentType:NSAttributedString.DocumentType.html], documentAttributes: nil)
                 
-                self.attributedText = attribute
+                self.base.attributedText = attribute
                 
             } catch {
                 
