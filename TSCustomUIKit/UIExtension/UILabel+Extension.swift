@@ -51,7 +51,7 @@ public extension TSUIKit where TU: UILabel {
     /**
      设置HTML文字
      */
-    func setHTMLText(text: String) -> Void {
+     public func setHTMLText(text: String) -> Void {
         
         if let data = msg.data(using: String.Encoding.unicode) {
             do {
