@@ -95,8 +95,8 @@ extension TSUIKit where TU: UIButton {
     /**
      设置HTML文字
      */
-    public func setHTMLText(_ msg: String, state: UIControlState) {
-        if let data = msg.data(using: String.Encoding.unicode) {
+    public func setHTMLText(text: String, state: UIControlState) {
+        if let data = text.data(using: String.Encoding.unicode) {
             do {
                 let attribute = try NSAttributedString(data: data, options: [.documentType:NSAttributedString.DocumentType.html], documentAttributes: nil)
                 self.setAttributedTitle(attribute, for: state)
