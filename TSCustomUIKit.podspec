@@ -71,4 +71,8 @@ s.subspec 'TSToast' do |ss|
 ss.source_files = 'TSCustomUIKit/TSToast/*'
 end
 
+s.subspec 'TSEmptyExtension' do |ss|
+ss.source_files = 'TSCustomUIKit/TSEmptyView/*'
+end
+
 end
