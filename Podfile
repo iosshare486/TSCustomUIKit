@@ -10,8 +10,9 @@ target 'TSCustomUIKit' do
 
 
     pod 'TSUtility' , :git=>'git@gitlab.caiqr.com:ios_module/TSUtility.git'
-  pod 'SnapKit'
-  pod 'Kingfisher'
+    pod 'TSNetworkMonitor'
+  pod 'SnapKit', '~> 4.0.0'
+  pod 'Kingfisher' , '~> 4.9.0'
 #  pod 'TSRefresh'
 
   # Pods for TSCustomUIKit

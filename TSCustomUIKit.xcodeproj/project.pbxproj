@@ -260,7 +260,6 @@
 				D43A976321257B460066029F /* TSTextfield */,
 				B241CB4621087BF900AB6F03 /* TSToast */,
 				F55F110220FB24A40003588E /* AppDelegate.swift */,
-				B24D3CC52152565A00CEF82F /* TSEmptyView */,
 				F55F110420FB24A40003588E /* ViewController.swift */,
 				B2F011B821539565003BF79C /* dropdown_anim@2x.png */,
 				B2F011AA2152961C003BF79C /* TSTestEmptyView.swift */,
@@ -344,6 +343,7 @@
 		F55F114320FB24DA0003588E /* UIExtension */ = {
 			isa = PBXGroup;
 			children = (
+				B24D3CC52152565A00CEF82F /* TSEmptyView */,
 				D42ABC9520FEF03800EFD97B /* TSUIKit.swift */,
 				D42ABC9720FEF03800EFD97B /* UILabel+Extension.swift */,
 				D42ABC9620FEF03800EFD97B /* UIView+Extension.swift */,
@@ -534,13 +534,17 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TSCustomUIKit/Pods-TSCustomUIKit-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/TSNetworkMonitor/TSNetworkMonitor.framework",
 				"${BUILT_PRODUCTS_DIR}/TSUtility/TSUtility.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TSNetworkMonitor.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TSUtility.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

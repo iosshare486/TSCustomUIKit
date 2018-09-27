@@ -36,7 +36,11 @@ ss.dependency 'TSUtility'
 end
 
 s.subspec 'UIExtension' do |ss|
-ss.source_files = 'TSCustomUIKit/UIExtension/*'
+ss.source_files = 'TSCustomUIKit/UIExtension/*.swift','TSCustomUIKit/UIExtension/TSEmptyView/*.swift'
+ss.dependency 'Kingfisher'
+ss.dependency 'SnapKit'
+ss.dependency 'TSUtility'
+ss.dependency 'TSNetworkMonitor'
 end
 
 s.subspec 'Segmented' do |ss|
@@ -49,10 +53,10 @@ s.subspec 'TableView' do |ss|
 ss.source_files = 'TSCustomUIKit/TableView/*'
 end
 
-s.subspec 'TSRPhotoBrowser' do |ss|
-ss.source_files = 'TSCustomUIKit/TSRPhotoBrowser/*'
-ss.dependency 'Kingfisher'
-end
+#s.subspec 'TSRPhotoBrowser' do |ss|
+#ss.source_files = 'TSCustomUIKit/TSRPhotoBrowser/*'
+#ss.dependency 'Kingfisher'
+#end
 
 s.subspec 'TSTabbarController' do |ss|
 ss.source_files = 'TSCustomUIKit/TSTabbarController/TSTabbarControl/*','TSCustomUIKit/TSTabbarController/TSTabbarUtility/*'
@@ -65,14 +69,14 @@ end
 
 s.subspec 'TSTextfield' do |ss|
 ss.source_files = 'TSCustomUIKit/TSTextfield/*'
+ss.dependency 'SnapKit'
+ss.dependency 'TSUtility'
 end
 
 s.subspec 'TSToast' do |ss|
 ss.source_files = 'TSCustomUIKit/TSToast/*'
-end
-
-s.subspec 'TSEmptyExtension' do |ss|
-ss.source_files = 'TSCustomUIKit/TSEmptyView/*'
+ss.dependency 'SnapKit'
+ss.dependency 'TSUtility'
 end
 
 end
