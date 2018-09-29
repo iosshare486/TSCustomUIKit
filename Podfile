@@ -1,6 +1,6 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
-
+platform :ios, '9.0'
 source 'https://github.com/CocoaPods/Specs.git'
 source 'http://gitlab.caiqr.com/zhangjunjie/ExchangePodSpecs.git'
 
@@ -9,9 +9,11 @@ target 'TSCustomUIKit' do
   use_frameworks!
 
 
+    pod 'TSRefresh' , :git=>'http://gitlab.caiqr.com/ios_module/TSRefresh.git'
     pod 'TSUtility' , :git=>'git@gitlab.caiqr.com:ios_module/TSUtility.git'
-  pod 'SnapKit'
-  pod 'Kingfisher'
+    pod 'TSNetworkMonitor'
+  pod 'SnapKit', '~> 4.0.0'
+  pod 'Kingfisher' , '~> 4.9.0'
 #  pod 'TSRefresh'
 
   # Pods for TSCustomUIKit

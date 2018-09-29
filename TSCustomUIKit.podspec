@@ -36,7 +36,11 @@ ss.dependency 'TSUtility'
 end
 
 s.subspec 'UIExtension' do |ss|
-ss.source_files = 'TSCustomUIKit/UIExtension/*'
+ss.source_files = 'TSCustomUIKit/UIExtension/*.swift','TSCustomUIKit/UIExtension/TSEmptyView/*.swift'
+ss.dependency 'Kingfisher'
+ss.dependency 'SnapKit'
+ss.dependency 'TSUtility'
+ss.dependency 'TSNetworkMonitor'
 end
 
 s.subspec 'Segmented' do |ss|
@@ -65,10 +69,14 @@ end
 
 s.subspec 'TSTextfield' do |ss|
 ss.source_files = 'TSCustomUIKit/TSTextfield/*'
+ss.dependency 'SnapKit'
+ss.dependency 'TSUtility'
 end
 
 s.subspec 'TSToast' do |ss|
 ss.source_files = 'TSCustomUIKit/TSToast/*'
+ss.dependency 'SnapKit'
+ss.dependency 'TSUtility'
 end
 
 end
