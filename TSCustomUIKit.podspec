@@ -53,10 +53,10 @@ s.subspec 'TableView' do |ss|
 ss.source_files = 'TSCustomUIKit/TableView/*'
 end
 
-#s.subspec 'TSRPhotoBrowser' do |ss|
-#ss.source_files = 'TSCustomUIKit/TSRPhotoBrowser/*'
-#ss.dependency 'Kingfisher'
-#end
+s.subspec 'TSRPhotoBrowser' do |ss|
+ss.source_files = 'TSCustomUIKit/TSRPhotoBrowser/*'
+ss.dependency 'Kingfisher'
+end
 
 s.subspec 'TSTabbarController' do |ss|
 ss.source_files = 'TSCustomUIKit/TSTabbarController/TSTabbarControl/*','TSCustomUIKit/TSTabbarController/TSTabbarUtility/*'
