@@ -8,7 +8,7 @@
 
 import UIKit
 import TSNetworkMonitor
-
+import TSRefresh
 
 class ViewController: UIViewController {
 
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         let button = UIButton.init(frame: CGRect.init(x: 50, y: 50, width: 50, height: 50))
         button.backgroundColor = UIColor.red
         button.addTarget(self, action: #selector(buttonClick), for: UIControlEvents.touchUpInside)
-        self.view.addSubview(button)
+        
         inputTextView.limitEmoji = true
 //        inputTextView.limitMarkChar = true
         inputTextView.textColor = .red
@@ -42,6 +42,7 @@ class ViewController: UIViewController {
             make.top.equalTo(20)
             make.bottom.equalToSuperview()
         }
+        self.view.addSubview(button)
         mainTableView.delegate = self
         mainTableView.dataSource = self
         mainTableView.separatorStyle = .none
@@ -61,13 +62,21 @@ class ViewController: UIViewController {
 //            make.center.equalToSuperview()
 //            make.width.height.equalTo(100)
 //        }
-        mainTableView.tu.emptyViewCanScroll = false
 //        mainTableView.tu.autoShowOrHiddenNoNetView = false
         let emV = TSTestEmptyView.init(frame: .zero)
-        mainTableView.tu.tsNormalEmptyView(#imageLiteral(resourceName: "dropdown_anim.png"), "暂时没有数据哦")
+        mainTableView.tu.normalEmptyView(#imageLiteral(resourceName: "dropdown_anim.png"), "暂时没有数据哦")
         //展示空数据条件
         mainTableView.tu.checkEmptyStatusBlock = {
             return self.count == 0
+        }
+        
+        mainTableView.ts_addRefreshAction({ [weak self] in
+            let count = arc4random_uniform(3)
+            self?.count = count == 1 ? 0 : 10
+            self?.reloadTab()
+            }, headerView: TSCustomRefreshNormalView()).ts_addLoadMoreAction { [weak self] in
+                self?.count = 20
+                self?.reloadTab()
         }
         
         emV.onClickA = { [weak self] in
@@ -92,9 +101,9 @@ class ViewController: UIViewController {
 //            }
             self?.reloadTab()
         }
-        mainTableView.tu.tsNormalNonetWorkView(#imageLiteral(resourceName: "dropdown_anim.png"), "刷新") { [weak self] in
-            let count = arc4random_uniform(3)
-             self?.count = count == 1 ? 0 : 10
+        mainTableView.tu.normalNonetWorkView(#imageLiteral(resourceName: "dropdown_anim.png"), "刷新") { [weak self] in
+            let count = arc4random_uniform(2)
+             self?.count = 10
             self?.reloadTab()
         }
         mainTableView.tu.checkEmptyStatusBlock = {
@@ -123,12 +132,15 @@ class ViewController: UIViewController {
         }
         mainTableView.reloadData()
         mainTableView.tu.reloadNoDataView()
+        mainTableView.ts_endRefreshingAndLoading(false)
     }
     
     @objc func buttonClick() -> Void {
-        
+        DispatchQueue.main.async {
+            self.mainTableView.scrollRectToVisible(CGRect(x: 0, y: 1, width: 1, height: 1), animated: true)
+        }
+//        mainTableView.ts_triggerRefreshing()
         if i == 0 {
-            
             TSToastControl.showToast("w")
         }else{
             

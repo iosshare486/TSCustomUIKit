@@ -48,13 +48,13 @@ public extension TSUIKit where TU: UIView {
         }
     }
     
-    //CanScroll
-    public var emptyViewCanScroll: Bool? {
-        get { return objc_getAssociatedObject(self.base, TSEmptyKeys.stateViewScroll!) as? Bool }
-        set {
-            objc_setAssociatedObject(self.base, TSEmptyKeys.stateViewScroll!, newValue, .OBJC_ASSOCIATION_RETAIN)
-        }
-    }
+    //CanScroll 内部实现不合理 弃用
+//    public var emptyViewCanScroll: Bool? {
+//        get { return objc_getAssociatedObject(self.base, TSEmptyKeys.stateViewScroll!) as? Bool }
+//        set {
+//            objc_setAssociatedObject(self.base, TSEmptyKeys.stateViewScroll!, newValue, .OBJC_ASSOCIATION_RETAIN)
+//        }
+//    }
     
     ///自动显示无网络展位图 默认为自动展示
     public var autoShowOrHiddenNoNetView: Bool? {
@@ -119,13 +119,6 @@ public extension TSUIKit where TU: UIView {
         if let noNetView = self.noNetworkView {
             noNetView.isHidden = true
         }
-        if self.base is UIScrollView {
-            if let canScroll = self.emptyViewCanScroll {
-                (self.base as? UIScrollView)?.isScrollEnabled = canScroll
-            } else {
-                (self.base as? UIScrollView)?.isScrollEnabled = false
-            }
-        }
         showView()
     }
     
@@ -133,13 +126,6 @@ public extension TSUIKit where TU: UIView {
     public func reloadNoDataViewOtherDataSource() {
         if let noNetView = self.noNetworkView {
             noNetView.isHidden = true
-        }
-        if self.base is UIScrollView {
-            if let canScroll = self.emptyViewCanScroll {
-                (self.base as? UIScrollView)?.isScrollEnabled = canScroll
-            } else {
-                (self.base as? UIScrollView)?.isScrollEnabled = false
-            }
         }
         guard self.emptyView != nil else {
             debugPrint("未设置空数据View")
@@ -247,14 +233,14 @@ public extension TSUIKit where TU: UIView {
 // MARK: - 默认配置空数据和无网络的View
 public extension TSUIKit where TU: UIView {
     
-    public func tsNormalEmptyView (_ img : UIImage , _ text : String) {
+    public func normalEmptyView (_ img : UIImage , _ text : String) {
         let emptyView = TSEmptyNormalView.init(img, text)
         self.emptyView = emptyView
         self.emptyView!.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
     }
-    public func tsNormalNonetWorkView (_ img : UIImage , _ text : String , _ noNetAction : (()->())?) {
+    public func normalNonetWorkView (_ img : UIImage , _ text : String , _ noNetAction : (()->())?) {
         let noNetView = TSNoNetWorkNormalView.init(img, text, noNetAction)
         self.noNetworkView = noNetView
         self.noNetworkView!.snp.makeConstraints {

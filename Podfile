@@ -9,6 +9,7 @@ target 'TSCustomUIKit' do
   use_frameworks!
 
 
+    pod 'TSRefresh' , :git=>'http://gitlab.caiqr.com/ios_module/TSRefresh.git'
     pod 'TSUtility' , :git=>'git@gitlab.caiqr.com:ios_module/TSUtility.git'
     pod 'TSNetworkMonitor'
   pod 'SnapKit', '~> 4.0.0'

@@ -127,7 +127,7 @@ extension TSPageControllerHelper: UIPageViewControllerDelegate, UIPageViewContro
         }
         
         index! += 1
-        self.currentIndex = index!
+//        self.currentIndex = index!
         if index! < self.viewControllers.count {
             
             return self.viewControllers[index!]
@@ -148,7 +148,7 @@ extension TSPageControllerHelper: UIPageViewControllerDelegate, UIPageViewContro
         }
         
         index! -= 1
-        self.currentIndex = index!
+//        self.currentIndex = index!
         if index! < self.viewControllers.count {
             
             return self.viewControllers[index!]
@@ -159,10 +159,10 @@ extension TSPageControllerHelper: UIPageViewControllerDelegate, UIPageViewContro
         return nil
     }
     
-    public func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        
-        currentIndex = self.viewControllers.index(of: pendingViewControllers.first!) ?? 0
-    }
+//    public func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+//
+//        currentIndex = self.viewControllers.index(of: pendingViewControllers.first!) ?? 0
+//    }
     
     public func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
