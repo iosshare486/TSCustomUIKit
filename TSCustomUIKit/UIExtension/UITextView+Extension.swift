@@ -19,7 +19,7 @@ public extension TSUIKit where TU: UITextView {
         
         paraph.lineSpacing = space
         
-        let attr = [NSAttributedStringKey.paragraphStyle: paraph]
+        let attr = [NSAttributedStringKey.paragraphStyle: paraph,NSAttributedStringKey.font:self.base.font ?? UIFont.systemFont(ofSize: 14)]
         
         self.base.attributedText = NSAttributedString.init(string: self.base.text ?? "", attributes: attr)
     }
