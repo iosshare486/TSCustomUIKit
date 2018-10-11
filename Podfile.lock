@@ -5,39 +5,27 @@ PODS:
   - SnapKit (4.0.1)
   - TSNetworkMonitor (1.0.0):
     - ReachabilitySwift
-  - TSRefresh (1.0.2):
+  - TSRefresh (1.0.3):
     - MJRefresh
-  - TSUtility (1.0.5)
+  - TSUtility (1.0.6)
 
 DEPENDENCIES:
   - Kingfisher (~> 4.9.0)
   - SnapKit (~> 4.0.0)
   - TSNetworkMonitor
-  - TSRefresh (from `http://gitlab.caiqr.com/ios_module/TSRefresh.git`)
-  - "TSUtility (from `git@gitlab.caiqr.com:ios_module/TSUtility.git`)"
+  - TSRefresh
+  - TSUtility
 
 SPEC REPOS:
   http://gitlab.caiqr.com/zhangjunjie/ExchangePodSpecs.git:
     - TSNetworkMonitor
+    - TSRefresh
+    - TSUtility
   https://github.com/cocoapods/specs.git:
     - Kingfisher
     - MJRefresh
     - ReachabilitySwift
     - SnapKit
-
-EXTERNAL SOURCES:
-  TSRefresh:
-    :git: http://gitlab.caiqr.com/ios_module/TSRefresh.git
-  TSUtility:
-    :git: "git@gitlab.caiqr.com:ios_module/TSUtility.git"
-
-CHECKOUT OPTIONS:
-  TSRefresh:
-    :commit: f15c224849d2aef296c2391abf7c0379831095ac
-    :git: http://gitlab.caiqr.com/ios_module/TSRefresh.git
-  TSUtility:
-    :commit: 987a347db6098b4266e67e47342398fd75f47378
-    :git: "git@gitlab.caiqr.com:ios_module/TSUtility.git"
 
 SPEC CHECKSUMS:
   Kingfisher: 64539b51826b778206daa6ed815d12653caa69dd
@@ -45,9 +33,9 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 35720ffea59c1c76d15f885be77fd33e33985427
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   TSNetworkMonitor: 35ac42bdf08ca38d1febafcdf89478a382008944
-  TSRefresh: 9d6cc889b2e668379b413b2741bd7f8639310068
-  TSUtility: 644ee9eeb828852c332b9be0b9430de277c4376e
+  TSRefresh: e935c1f33e792cc84df1a0dd6e55e390f88b07b1
+  TSUtility: 06df261ebf0398a99d4d96dfd519fd16ef4f3bcb
 
-PODFILE CHECKSUM: 12b59433267e3a2f5590425993e4b9727bd80d5d
+PODFILE CHECKSUM: 310fa8f9d2886b6e1058e7b70dc7ff0358ca29c8
 
 COCOAPODS: 1.5.2
