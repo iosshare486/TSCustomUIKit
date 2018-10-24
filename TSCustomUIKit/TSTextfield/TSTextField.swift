@@ -62,7 +62,7 @@ open class TSTextField: UITextField, UITextFieldDelegate {
     
     //结束编辑
     @available(iOS 10.0, *)
-    public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+    public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         self.tsTextfieldDelegate?.tsTextFieldDidEndEditing?(textField, reason: reason)
     }
     

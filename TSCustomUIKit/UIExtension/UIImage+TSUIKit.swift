@@ -153,7 +153,7 @@ public extension UIImage {
         image = UIImage.init(cgImage: (image?.cgImage)!, scale: (image?.scale)! * 3, orientation: (image?.imageOrientation)!)
         
         //防止系统渲染
-        image = image?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        image = image?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         
         return image
     }

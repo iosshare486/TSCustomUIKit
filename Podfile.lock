@@ -1,41 +1,53 @@
 PODS:
-  - Kingfisher (4.9.0)
-  - MJRefresh (3.1.15.7)
-  - ReachabilitySwift (4.2.1)
+  - Kingfisher (4.10.0)
+  - ReachabilitySwift (4.3.0)
   - SnapKit (4.0.1)
-  - TSNetworkMonitor (1.0.0):
+  - TSDrawAndAnimation (2.0.0)
+  - TSNetworkMonitor (2.0.0):
     - ReachabilitySwift
-  - TSRefresh (1.0.3):
-    - MJRefresh
+  - TSRefresh (1.0.5)
   - TSUtility (1.0.6)
 
 DEPENDENCIES:
-  - Kingfisher (~> 4.9.0)
-  - SnapKit (~> 4.0.0)
-  - TSNetworkMonitor
-  - TSRefresh
+  - Kingfisher
+  - SnapKit
+  - TSDrawAndAnimation
+  - TSNetworkMonitor (from `http://gitlab.caiqr.com/ios_module/TSNetworkMonitor.git`)
+  - TSRefresh (from `http://gitlab.caiqr.com/ios_module/TSRefresh.git`)
   - TSUtility
 
 SPEC REPOS:
   http://gitlab.caiqr.com/zhangjunjie/ExchangePodSpecs.git:
-    - TSNetworkMonitor
-    - TSRefresh
+    - TSDrawAndAnimation
     - TSUtility
   https://github.com/cocoapods/specs.git:
     - Kingfisher
-    - MJRefresh
     - ReachabilitySwift
     - SnapKit
 
+EXTERNAL SOURCES:
+  TSNetworkMonitor:
+    :git: http://gitlab.caiqr.com/ios_module/TSNetworkMonitor.git
+  TSRefresh:
+    :git: http://gitlab.caiqr.com/ios_module/TSRefresh.git
+
+CHECKOUT OPTIONS:
+  TSNetworkMonitor:
+    :commit: 75746db29558f8d1f2ac7b96036724a8d11bf4ef
+    :git: http://gitlab.caiqr.com/ios_module/TSNetworkMonitor.git
+  TSRefresh:
+    :commit: 7979bd086cbd398334fdd0e8b369f622be80289b
+    :git: http://gitlab.caiqr.com/ios_module/TSRefresh.git
+
 SPEC CHECKSUMS:
-  Kingfisher: 64539b51826b778206daa6ed815d12653caa69dd
-  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
-  ReachabilitySwift: 35720ffea59c1c76d15f885be77fd33e33985427
+  Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
+  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  TSNetworkMonitor: 35ac42bdf08ca38d1febafcdf89478a382008944
-  TSRefresh: e935c1f33e792cc84df1a0dd6e55e390f88b07b1
+  TSDrawAndAnimation: cfcfb5aa87f369c17be76a6ce1d6c6010e36ee22
+  TSNetworkMonitor: 2be65b4008a628b6dc7019f587cb91b61c2ed13e
+  TSRefresh: 50725257d08b496bc4ce96b65247bcf320672332
   TSUtility: 06df261ebf0398a99d4d96dfd519fd16ef4f3bcb
 
-PODFILE CHECKSUM: 310fa8f9d2886b6e1058e7b70dc7ff0358ca29c8
+PODFILE CHECKSUM: a7e1228e371da972d945ccb44e1ed9a0d3909c03
 
 COCOAPODS: 1.5.2

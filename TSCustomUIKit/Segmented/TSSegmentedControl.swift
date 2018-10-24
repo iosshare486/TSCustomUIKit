@@ -265,10 +265,10 @@ extension TSSegmentedControl {
             
             let button : UIButton = TSSegmentedControlItemButton()
             if let normalTitle = title.normalTitle {
-                button.setTitle(normalTitle, for: UIControlState.normal)
+                button.setTitle(normalTitle, for: UIControl.State.normal)
             }
             if let selectTitle = title.selectTitle {
-                button.setTitle(selectTitle, for: UIControlState.selected)
+                button.setTitle(selectTitle, for: UIControl.State.selected)
             }
             if let normalColor = title.normalColor {
                 button.setTitleColor(normalColor, for: .normal)
@@ -277,10 +277,10 @@ extension TSSegmentedControl {
                 button.setTitleColor(selectColor, for: .selected)
             }
             if let normalImage = title.normalImage {
-                button.setImage(normalImage, for: UIControlState.normal)
+                button.setImage(normalImage, for: UIControl.State.normal)
             }
             if let selectImage = title.selectImage {
-                button.setImage(selectImage, for: UIControlState.selected)
+                button.setImage(selectImage, for: UIControl.State.selected)
             }
             button.titleLabel?.font = title.normalFont
             button.adjustsImageWhenHighlighted = false

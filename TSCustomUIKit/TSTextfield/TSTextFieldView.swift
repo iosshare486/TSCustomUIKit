@@ -21,7 +21,7 @@ import UIKit
     @objc optional func tsTextFieldDidEndEditing(_ textField: UITextField)
     
     @available(iOS 10.0, *)
-    @objc optional func tsTextFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason)
+    @objc optional func tsTextFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason)
     
     @objc optional func tsTextFieldShouldClear(_ textField: UITextField) -> Bool
     
@@ -95,7 +95,7 @@ open class TSTextFieldView: UIView {
     }
     
     ///清除按钮类型
-    open var textClearButtonMode : UITextFieldViewMode? {
+    open var textClearButtonMode : UITextField.ViewMode? {
         didSet {
             tsTextField.clearButtonMode = textClearButtonMode!
         }
@@ -347,7 +347,7 @@ extension TSTextFieldView : UITextFieldDelegate {
     
     //结束编辑
     @available(iOS 10.0, *)
-    public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+    public func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         self.tsTextfieldDelegate?.tsTextFieldDidEndEditing?(textField, reason: reason)
     }
     

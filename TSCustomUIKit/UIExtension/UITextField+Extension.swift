@@ -45,7 +45,7 @@ public extension TSUIKit where TU: UITextField {
         }
 
         let attrStr = NSAttributedString.init(string: self.base.placeholder ?? "", attributes: [
-                NSAttributedStringKey.foregroundColor : attrTextColor!, NSAttributedStringKey.font : attrTextFont!])
+            NSAttributedString.Key.foregroundColor : attrTextColor!, NSAttributedString.Key.font : attrTextFont!])
         
         self.base.attributedPlaceholder = attrStr
     }

@@ -108,7 +108,7 @@ public extension TSUIKit where TU: UIView {
             if !self.base.subviews.contains(noNetView) {
                 self.base.addSubview(noNetView)
             }
-            self.base.bringSubview(toFront: noNetView)
+            self.base.bringSubviewToFront(noNetView)
             noNetView.isHidden = false
         } else {
             debugPrint("未设置无网络View")

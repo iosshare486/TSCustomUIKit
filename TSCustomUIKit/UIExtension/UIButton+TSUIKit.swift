@@ -11,7 +11,7 @@ import Kingfisher
 
 extension TSUIKit where TU: UIButton {
     /// 设置图片
-    public func setImage(url : String?,_ status : UIControlState = .normal) {
+    public func setImage(url : String?,_ status : UIControl.State = .normal) {
         
         guard let urlStr = url, urlStr.count > 1 else {
             return
@@ -30,7 +30,7 @@ extension TSUIKit where TU: UIButton {
     /// - Parameters:
     ///   - url: 图片地址
     ///   - placeHolder: 默认图
-    public func setImage(url : String?,_ status : UIControlState = .normal, placeHolder: UIImage) {
+    public func setImage(url : String?,_ status : UIControl.State = .normal, placeHolder: UIImage) {
         
         guard let urlStr = url, urlStr.count > 1 else {
             self.base.setImage(placeHolder, for: status)
@@ -53,7 +53,7 @@ extension TSUIKit where TU: UIButton {
     ///   - corner: 圆角大小
     ///   - imageSize: 期望获取到的图片大小
     ///   - placeHolder: 默认图片
-    public func setImagea(urlString: String?, corner: CGFloat, imageSize: CGSize? = nil,_ status : UIControlState = .normal, placeHolder: UIImage? = nil) {
+    public func setImagea(urlString: String?, corner: CGFloat, imageSize: CGSize? = nil,_ status : UIControl.State = .normal, placeHolder: UIImage? = nil) {
         
         guard let url = URL(string: urlString!) else {
             self.base.setImage(placeHolder, for: status)
@@ -72,7 +72,7 @@ extension TSUIKit where TU: UIButton {
     ///   - placeHolder: 默认图
     ///   - progressBlock: 图片加载进度
     ///   - completionBlock: 完成回调
-    public func setImage(url : String?,_ status : UIControlState = .normal, placeHolder: UIImage?, progressBlock : ((_ receivedSize: Int64, _ totalSize: Int64) -> Void)?, completionBlock : ((_ image: Image?, _ error: NSError?) -> Void)? ) {
+    public func setImage(url : String?,_ status : UIControl.State = .normal, placeHolder: UIImage?, progressBlock : ((_ receivedSize: Int64, _ totalSize: Int64) -> Void)?, completionBlock : ((_ image: Image?, _ error: NSError?) -> Void)? ) {
         
         guard let urlStr = url, urlStr.count > 1 else {
             return
@@ -95,7 +95,7 @@ extension TSUIKit where TU: UIButton {
     /**
      设置HTML文字
      */
-    public func setHTMLText(text: String, state: UIControlState) {
+    public func setHTMLText(text: String, state: UIControl.State) {
         if let data = text.data(using: String.Encoding.unicode) {
             do {
                 let attribute = try NSAttributedString(data: data, options: [.documentType:NSAttributedString.DocumentType.html], documentAttributes: nil)

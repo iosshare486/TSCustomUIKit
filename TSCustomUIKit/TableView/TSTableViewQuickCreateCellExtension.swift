@@ -32,7 +32,7 @@ public extension UITableView {
     public func ts_dequeueReusableCell<T: UITableViewCell>(_ cellClass: T.Type) -> T {
         guard let cell = dequeueReusableCell(withIdentifier: T.reuseIdentifier) as? T else {
             
-            let cellTemp = T.init(style: UITableViewCellStyle.default, reuseIdentifier: T.reuseIdentifier)
+            let cellTemp = T.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: T.reuseIdentifier)
             
             return cellTemp
             

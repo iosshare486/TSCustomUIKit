@@ -9,7 +9,7 @@
 import UIKit
 import TSNetworkMonitor
 import TSRefresh
-
+import TSDrawAndAnimation
 class ViewController: UIViewController {
 
     var i = 0
@@ -18,10 +18,13 @@ class ViewController: UIViewController {
     var count = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        TSNetworkMonitor.registerMonitor()
         // Do any additional setup after loading the view, typically from a nib.
         let button = UIButton.init(frame: CGRect.init(x: 50, y: 50, width: 50, height: 50))
         button.backgroundColor = UIColor.red
-        button.addTarget(self, action: #selector(buttonClick), for: UIControlEvents.touchUpInside)
+        button.addTarget(self, action: #selector(buttonClick), for: UIControl.Event.touchUpInside)
+        
+        button.layer.add(CABasicAnimation.positionAnimation(CGPoint(x: 75, y: 75), CGPoint(x: 100, y: 100), 2), forKey: nil)
         
         inputTextView.limitEmoji = true
 //        inputTextView.limitMarkChar = true

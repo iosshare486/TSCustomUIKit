@@ -87,7 +87,7 @@ open class TSTabBar: UITabBar {
                     anim1.toValue = NSNumber(floatLiteral: CDouble(1.3))
                     
                     let groupAnimation = CAAnimationGroup()
-                    groupAnimation.fillMode = kCAFillModeForwards;
+                    groupAnimation.fillMode = CAMediaTimingFillMode.forwards;
                     groupAnimation.isRemovedOnCompletion = false;
                     groupAnimation.animations = [anim1]
                     

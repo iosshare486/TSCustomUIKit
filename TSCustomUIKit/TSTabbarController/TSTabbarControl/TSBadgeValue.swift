@@ -71,6 +71,6 @@ class TSBadgeValue: UIView {
     
     
     func sizeWithAttribute(text:NSString) -> CGSize {
-        return text.size(withAttributes: [NSAttributedStringKey.font: self.badgeL.font])
+        return text.size(withAttributes: [NSAttributedString.Key.font: self.badgeL.font])
     }
 }

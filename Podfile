@@ -8,12 +8,13 @@ target 'TSCustomUIKit' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-
-    pod 'TSRefresh'
+    pod 'TSDrawAndAnimation'
+    pod 'TSRefresh', :git=>'http://gitlab.caiqr.com/ios_module/TSRefresh.git'
     pod 'TSUtility'
-    pod 'TSNetworkMonitor'
-  pod 'SnapKit', '~> 4.0.0'
-  pod 'Kingfisher' , '~> 4.8.1'
+    
+    pod 'TSNetworkMonitor', :git=>'http://gitlab.caiqr.com/ios_module/TSNetworkMonitor.git'
+  pod 'SnapKit'
+  pod 'Kingfisher'
 #  pod 'TSRefresh'
 
   # Pods for TSCustomUIKit

@@ -37,24 +37,24 @@ public class TSKeyBoardToolBar: UIView {
         }
         
         //添加键盘弹出监听
-        NotificationCenter.default.addObserver(self, selector: #selector(keyBoradWillChangeFrame(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyBoradWillChangeFrame(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc private func keyBoradWillChangeFrame(notification: Notification) {
         
         if let userInfo = notification.userInfo,
-            let value = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue,
-            let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? Double,
-            let curve = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt {
+            let value = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+            let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double,
+            let curve = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt {
             let frame = value.cgRectValue
             
             self.inputBaseView.snp.updateConstraints { (make) in
                 make.bottom.equalToSuperview().offset(frame.origin.y - UIScreen.main.bounds.height)
             }
             
-            UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions(rawValue: curve), animations: {
+            UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(rawValue: curve), animations: {
                 self.superview?.layoutIfNeeded()
             }, completion: nil)
         }

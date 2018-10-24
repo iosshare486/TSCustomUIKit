@@ -114,7 +114,7 @@ open class TSToastDisplayControl: NSObject {
         
         let attributedStr: NSMutableAttributedString = NSMutableAttributedString.init(string: text)
         
-        attributedStr.setAttributes([NSAttributedStringKey.font : 14.ts.font()], range: NSMakeRange(0, attributedStr.length))
+        attributedStr.setAttributes([NSAttributedString.Key.font : 14.ts.font()], range: NSMakeRange(0, attributedStr.length))
 
 //        TSLog(attributedStr.size())
         

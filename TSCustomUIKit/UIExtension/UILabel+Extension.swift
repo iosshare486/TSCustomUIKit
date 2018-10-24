@@ -42,7 +42,7 @@ public extension TSUIKit where TU: UILabel {
         
         paraph.lineSpacing = space
         
-        let attr = [NSAttributedStringKey.paragraphStyle: paraph]
+        let attr = [NSAttributedString.Key.paragraphStyle: paraph]
         
         self.base.attributedText = NSAttributedString.init(string: self.base.text ?? "", attributes: attr)
     }
@@ -90,12 +90,12 @@ public extension TSUIKit where TU: UILabel {
                 
                 if attributeParm.color != nil {
                     
-                    attributeStr.addAttribute(NSAttributedStringKey.foregroundColor, value: attributeParm.color!, range: attributeParm.range!)
+                    attributeStr.addAttribute(NSAttributedString.Key.foregroundColor, value: attributeParm.color!, range: attributeParm.range!)
                 }
                 
                 if attributeParm.font != nil {
                     
-                    attributeStr.addAttribute(NSAttributedStringKey.font, value: attributeParm.font!, range: attributeParm.range!)
+                    attributeStr.addAttribute(NSAttributedString.Key.font, value: attributeParm.font!, range: attributeParm.range!)
                 }
                 if attributeParm.lineSpace != nil {
                     
@@ -103,7 +103,7 @@ public extension TSUIKit where TU: UILabel {
                     style.lineSpacing = attributeParm.lineSpace!
                     style.alignment = .left
                     style.lineBreakMode = .byWordWrapping
-                    attributeStr.addAttribute(NSAttributedStringKey.paragraphStyle, value: style, range: NSMakeRange(0, text.count-1))
+                    attributeStr.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: NSMakeRange(0, text.count-1))
                 }
                 
                 if attributeParm.rowHeight != nil {
@@ -112,7 +112,7 @@ public extension TSUIKit where TU: UILabel {
                     style.minimumLineHeight = attributeParm.rowHeight!
                     style.alignment = .left
                     style.lineBreakMode = .byWordWrapping
-                    attributeStr.addAttribute(NSAttributedStringKey.paragraphStyle, value: style, range: NSMakeRange(0, text.count-1))
+                    attributeStr.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: NSMakeRange(0, text.count-1))
                 }
                 
             }

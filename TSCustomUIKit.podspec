@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "TSCustomUIKit"
-s.version      = "0.0.9"
+s.version      = "2.0.0"
 s.summary      = "this is app custom UIKit"
 
 s.description  = <<-DESC
@@ -26,7 +26,7 @@ s.source       = { :git => "http://gitlab.caiqr.com/ios_module/TSCustomUIKit.git
 
 s.framework  = "UIKit","Foundation"
 
-s.swift_version = '4.0'
+s.swift_version = '4.2'
 
 s.requires_arc = true
 
@@ -37,8 +37,8 @@ end
 
 s.subspec 'UIExtension' do |ss|
 ss.source_files = 'TSCustomUIKit/UIExtension/*.swift','TSCustomUIKit/UIExtension/TSEmptyView/*.swift'
-ss.dependency 'Kingfisher', '~> 4.8.1'
-ss.dependency 'SnapKit', '~> 4.0.0'
+ss.dependency 'Kingfisher'
+ss.dependency 'SnapKit'
 ss.dependency 'TSUtility'
 ss.dependency 'TSNetworkMonitor'
 end
@@ -46,7 +46,7 @@ end
 s.subspec 'Segmented' do |ss|
 ss.source_files = 'TSCustomUIKit/Segmented/*'
 ss.dependency 'TSUtility'
-ss.dependency 'SnapKit', '~> 4.0.0'
+ss.dependency 'SnapKit'
 end
 
 s.subspec 'TableView' do |ss|
@@ -55,7 +55,7 @@ end
 
 s.subspec 'TSRPhotoBrowser' do |ss|
 ss.source_files = 'TSCustomUIKit/TSRPhotoBrowser/*'
-ss.dependency 'Kingfisher', '~> 4.8.1'
+ss.dependency 'Kingfisher'
 end
 
 s.subspec 'TSTabbarController' do |ss|
@@ -64,18 +64,18 @@ end
 
 s.subspec 'KeyBoardBar' do |ss|
 ss.source_files = 'TSCustomUIKit/KeyBoardBar/*'
-ss.dependency 'SnapKit', '~> 4.0.0'
+ss.dependency 'SnapKit'
 end
 
 s.subspec 'TSTextfield' do |ss|
 ss.source_files = 'TSCustomUIKit/TSTextfield/*'
-ss.dependency 'SnapKit', '~> 4.0.0'
+ss.dependency 'SnapKit'
 ss.dependency 'TSUtility'
 end
 
 s.subspec 'TSToast' do |ss|
 ss.source_files = 'TSCustomUIKit/TSToast/*'
-ss.dependency 'SnapKit', '~> 4.0.0'
+ss.dependency 'SnapKit'
 ss.dependency 'TSUtility'
 end
 

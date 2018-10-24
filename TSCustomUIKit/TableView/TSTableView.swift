@@ -52,11 +52,11 @@ public class TSTableView: UITableView {
     ///  由于声明逃逸闭包不能声明可选，为了模拟可选类型，添加了一个默认，若是默认值，则表示没有传，即可选为nil
     convenience public init(frame: CGRect, createStyle: TSTableViewStyle, refresh: @escaping refreshOperation = {}, loading: @escaping refreshOperation = {}, initCell: @escaping InitCellOperation = {(cell, index) in }, selectCell: @escaping SelectCellOperation = {(index) in }) {
         
-        self.init(frame: frame, style: UITableViewStyle.plain)
+        self.init(frame: frame, style: UITableView.Style.plain)
         self.showsVerticalScrollIndicator = false
         self.showsHorizontalScrollIndicator = false
         self.estimatedRowHeight = 200
-        self.rowHeight = UITableViewAutomaticDimension
+        self.rowHeight = UITableView.automaticDimension
         self.separatorStyle = .none
         self.backgroundColor = .white
         
