@@ -100,7 +100,7 @@ public class TSSegmentedControlPlus: UIView {
     private lazy var buttonTitle: [TSSegmentedControlPlusTitleItem] = [TSSegmentedControlPlusTitleItem]()
     
 //MARK: - Override
-    private override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
     }
