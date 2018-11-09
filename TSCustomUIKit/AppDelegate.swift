@@ -22,10 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
         self.window?.backgroundColor = UIColor.white
-        self.window?.rootViewController = ViewController()
+        self.window?.rootViewController = TSTestSegmentViewController()
     
         TSNetworkMonitor.registerMonitor()
-        
+
         return true
     }
     

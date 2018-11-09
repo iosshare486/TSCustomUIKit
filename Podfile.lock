@@ -1,16 +1,14 @@
 PODS:
-  - Kingfisher (4.9.0)
-  - MJRefresh (3.1.15.7)
-  - ReachabilitySwift (4.2.1)
+  - Kingfisher (4.8.1)
+  - ReachabilitySwift (4.3.0)
   - SnapKit (4.0.1)
-  - TSNetworkMonitor (1.0.0):
-    - ReachabilitySwift
-  - TSRefresh (1.0.3):
-    - MJRefresh
+  - TSNetworkMonitor (1.0.1):
+    - ReachabilitySwift (~> 4.3.0)
+  - TSRefresh (1.0.5)
   - TSUtility (1.0.6)
 
 DEPENDENCIES:
-  - Kingfisher (~> 4.9.0)
+  - Kingfisher (~> 4.8.1)
   - SnapKit (~> 4.0.0)
   - TSNetworkMonitor
   - TSRefresh
@@ -21,21 +19,19 @@ SPEC REPOS:
     - TSNetworkMonitor
     - TSRefresh
     - TSUtility
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Kingfisher
-    - MJRefresh
     - ReachabilitySwift
     - SnapKit
 
 SPEC CHECKSUMS:
-  Kingfisher: 64539b51826b778206daa6ed815d12653caa69dd
-  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
-  ReachabilitySwift: 35720ffea59c1c76d15f885be77fd33e33985427
+  Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
+  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  TSNetworkMonitor: 35ac42bdf08ca38d1febafcdf89478a382008944
-  TSRefresh: e935c1f33e792cc84df1a0dd6e55e390f88b07b1
+  TSNetworkMonitor: c5fc6b1a579f39cfc43176c34eb7b48a88aa8141
+  TSRefresh: b5bbed8b811e4966219953666e79c67e9a9eaca0
   TSUtility: 06df261ebf0398a99d4d96dfd519fd16ef4f3bcb
 
-PODFILE CHECKSUM: 310fa8f9d2886b6e1058e7b70dc7ff0358ca29c8
+PODFILE CHECKSUM: 6dedac35a2f6756d53ce1c7125384b5fd1818fb9
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.0

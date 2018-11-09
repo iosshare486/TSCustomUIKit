@@ -55,6 +55,8 @@
 		F55F115920FB24DB0003588E /* TSPageControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F114820FB24DB0003588E /* TSPageControllerHelper.swift */; };
 		F55F115C20FB252D0003588E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F55F115A20FB252D0003588E /* LICENSE */; };
 		F55F115F20FB261C0003588E /* TSCustomUIKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F55F115E20FB261C0003588E /* TSCustomUIKit.podspec */; };
+		F5B7B78B217707C800BB8AD8 /* TSSegmentedControlPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B7B78A217707C800BB8AD8 /* TSSegmentedControlPlus.swift */; };
+		F5C3D6DF217DD0EF008F3004 /* TSTestSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C3D6DE217DD0EF008F3004 /* TSTestSegmentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +138,8 @@
 		F55F114820FB24DB0003588E /* TSPageControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSPageControllerHelper.swift; sourceTree = "<group>"; };
 		F55F115A20FB252D0003588E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		F55F115E20FB261C0003588E /* TSCustomUIKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TSCustomUIKit.podspec; sourceTree = SOURCE_ROOT; };
+		F5B7B78A217707C800BB8AD8 /* TSSegmentedControlPlus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSegmentedControlPlus.swift; sourceTree = "<group>"; };
+		F5C3D6DE217DD0EF008F3004 /* TSTestSegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSTestSegmentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +268,7 @@
 				B241CB4621087BF900AB6F03 /* TSToast */,
 				F55F110220FB24A40003588E /* AppDelegate.swift */,
 				F55F110420FB24A40003588E /* ViewController.swift */,
+				F5C3D6DE217DD0EF008F3004 /* TSTestSegmentViewController.swift */,
 				B29E8682215DD7AE0099EC4C /* TSCustomRefreshNormalView.swift */,
 				B2F011B821539565003BF79C /* dropdown_anim@2x.png */,
 				B2F011AA2152961C003BF79C /* TSTestEmptyView.swift */,
@@ -365,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				F55F114620FB24DA0003588E /* TSSegmentedControl.swift */,
+				F5B7B78A217707C800BB8AD8 /* TSSegmentedControlPlus.swift */,
 			);
 			path = Segmented;
 			sourceTree = "<group>";
@@ -540,7 +546,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TSCustomUIKit/Pods-TSCustomUIKit-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TSNetworkMonitor/TSNetworkMonitor.framework",
@@ -550,7 +555,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TSNetworkMonitor.framework",
@@ -612,6 +616,7 @@
 				B25E44B02148EE1B002D2F45 /* TSTextFieldView.swift in Sources */,
 				F55F115620FB24DB0003588E /* TSTableViewQuickCreateCellExtension.swift in Sources */,
 				F55F115120FB24DB0003588E /* TSTUIColorWithHexString.swift in Sources */,
+				F5C3D6DF217DD0EF008F3004 /* TSTestSegmentViewController.swift in Sources */,
 				F55F115220FB24DB0003588E /* TSTabbarViewExtension.swift in Sources */,
 				F55F110520FB24A40003588E /* ViewController.swift in Sources */,
 				D42ABC9820FEF03800EFD97B /* TSUIKit.swift in Sources */,
@@ -632,6 +637,7 @@
 				F55F114D20FB24DB0003588E /* TSTabbarButton.swift in Sources */,
 				D423478C214E375F00F4AE6D /* UITextView+Extension.swift in Sources */,
 				F55F110320FB24A40003588E /* AppDelegate.swift in Sources */,
+				F5B7B78B217707C800BB8AD8 /* TSSegmentedControlPlus.swift in Sources */,
 				D42ABC9A20FEF03800EFD97B /* UILabel+Extension.swift in Sources */,
 				D49432F22111DC410087F0C2 /* UITextField+Extension.swift in Sources */,
 				F55F115720FB24DB0003588E /* UIImage+TSUIKit.swift in Sources */,

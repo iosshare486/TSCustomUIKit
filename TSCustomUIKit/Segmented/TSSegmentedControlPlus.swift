@@ -1,8 +1,8 @@
 //
-//  TSSegmentedControl.swift
-//  TSSegmentedControl
+//  TSSegmentedControlPlus.swift
+//  TSCustomUIKit
 //
-//  Created by huangyuchen on 2018/6/26.
+//  Created by huangyuchen on 2018/10/17.
 //  Copyright © 2018年 caiqr. All rights reserved.
 //
 
@@ -10,8 +10,12 @@ import UIKit
 import TSUtility
 import SnapKit
 
-@objc public class TSSegmentedControlTitleItem: NSObject {
-    
+/// 对齐方式
+public enum TSSegmentedControlPlusAlignment {
+    case left, right, center
+}
+/// 每个segmentedItem的配置信息
+@objc public class TSSegmentedControlPlusTitleItem: NSObject {
     /// 普通文字
     public var normalTitle: String?
     /// 选中文字
@@ -34,8 +38,33 @@ import SnapKit
     public var selectBackgroundImage: UIImage?
 }
 
-@objc public class TSSegmentedControlConfigItem: NSObject {
+@objc public protocol TSSegmentedControlPlusDelegate : class {
     
+    /// 选中的位置
+    ///
+    /// - Parameter index: 选中的下标
+    @objc optional func segmentedControlPlusSelectIndex(index: Int)
+}
+
+@objc public protocol TSSegmentedControlPlusDataSource {
+    
+    /// item大小
+    ///
+    /// - Parameter index: 位置下标
+    /// - Returns: size
+    @objc optional func segmentedControlPlusItemSize(index: Int) -> CGSize
+    
+    /// 间距
+    ///
+    /// - Parameter index: 位置下标
+    /// - Returns: 间距
+    @objc optional func segmentedControlPlusItemSpace(index: Int) -> CGFloat
+    
+}
+
+public class TSSegmentedControlPlus: UIView {
+    
+//MARK: - public属性
     /// 底部线的颜色
     public var bottomLineColor: UIColor = 0xf5.ts.color()
     /// 滑动线的宽度
@@ -44,61 +73,20 @@ import SnapKit
     public var scrollLineHeight: CGFloat = 3.ts.scale()
     /// 滑动线与底部的距离
     public var scrollLineBottomY: CGFloat = 0
-    /// 滑动线与底部的距离
+    /// 滑动线颜色
     public var scrollLineColor: UIColor = 0xff5050.ts.color()
-    
-    /// segmentedControl 文字数组
-    public var titles: [TSSegmentedControlTitleItem] = [TSSegmentedControlTitleItem]()
-}
-
-public protocol TSSegmentedControlDelegate : class {
-    
-    /// 选中的位置
-    ///
-    /// - Parameter index: 选中的下标
-    func segmentedControlSelectIndex(index: Int)
-    
-}
-
-@objc public protocol TSSegmentedControlDataSource {
-    
-    /// 返回segmentedControl配置
-    ///
-    /// - Returns: 配置
-    @objc optional func segmentedControlSetConfigItem()-> TSSegmentedControlConfigItem!
-    
-    /// item大小
-    ///
-    /// - Parameter index: 位置下标
-    /// - Returns: size
-    @objc optional func segmentedControlItemSize(index: Int) -> CGSize
-    
-    /// 间距
-    ///
-    /// - Parameter index: 位置下标
-    /// - Returns: 间距
-    @objc optional func segmentedControlItemSpace(index: Int) -> CGFloat
-    
-    /// 距离左侧间距
-    ///
-    /// - Returns: 间距
-    @objc optional func segmentedControlLeftSpace() -> CGFloat
-    
-    /// 距离右侧间距
-    ///
-    /// - Returns: 间距
-    @objc optional func segmentedControlRightSpace() -> CGFloat
-}
-
-public class TSSegmentedControl: UIView {
-    
+    /// 距离左侧的间距
+    public var leftSpace: CGFloat = 0
+    /// 距离右侧的间距
+    public var rightSpace: CGFloat = 0
     /// 选中按钮的回调代理
-    public weak var delegate : TSSegmentedControlDelegate?
+    public weak var delegate: TSSegmentedControlPlusDelegate?
     /// segmented 配置资源
-    public weak var dataSource : TSSegmentedControlDataSource?
-    /// segmented 配置
-    private var configItem: TSSegmentedControlConfigItem!
+    public weak var dataSource: TSSegmentedControlPlusDataSource?
+    /// 对齐方式 默认距左
+    public var alignment: TSSegmentedControlPlusAlignment = .left
     
+//MARK: - private属性
     private lazy var mainScorllView: UIScrollView = UIScrollView(frame: .zero)
     
     private lazy var mainView: UIView = UIView(frame: .zero)
@@ -109,35 +97,61 @@ public class TSSegmentedControl: UIView {
     
     private lazy var buttonArray: [UIButton] = [UIButton]()
     
-    public override init(frame: CGRect) {
+    private lazy var buttonTitle: [TSSegmentedControlPlusTitleItem] = [TSSegmentedControlPlusTitleItem]()
+    
+//MARK: - Override
+    private override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
     }
+
+    public override func layoutSubviews() {
+        
+        super.layoutSubviews()
+        self.layoutIfNeeded()
+        
+        /// 如果mainView的宽度小于scrollview的宽度，则需要根据对齐方式来确定位置
+        if mainView.frame.width < mainScorllView.frame.width {
+            
+            mainView.snp.remakeConstraints { (make) in
+                
+                if self.alignment == .left {
+                    make.left.equalTo(self)
+                }else if self.alignment == .center {
+                    make.centerX.equalTo(self)
+                }else {
+                    make.right.equalTo(self)
+                }
+                make.top.equalToSuperview()
+                make.height.equalToSuperview()
+            }
+        }else {
+            mainView.snp.remakeConstraints { (make) in
+                
+                make.left.equalToSuperview()
+                make.top.equalToSuperview()
+                make.height.equalToSuperview()
+            }
+        }
+        
+        mainScorllView.contentSize = mainView.frame.size
+    }
     
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
+//MARK: - public method
     /// 快捷创建方式（使用该方式创建，可以不使用segmentedControlSetConfigItem这个协议）
     ///
     /// - Parameters:
     ///   - frame: frame
     ///   - titleArray: titles
-    ///   - color: 文字选中时的颜色
-    ///   - selectColor: 文字选中时的颜色
-    ///   - font: 文字大小
-    public convenience init(frame: CGRect, titleArray: Array<String>, _ color: UIColor = 0x9.ts.color(), _ selectColor: UIColor = 0xff5050.ts.color(), _ font: UIFont = 15.ts.font(), _ selectFont: UIFont = 15.ts.font()){
+    public convenience init(frame: CGRect, titleArray: Array<TSSegmentedControlPlusTitleItem>){
         
         self.init(frame: frame)
-        
-        self.configItem = TSSegmentedControlConfigItem()
-        for title in titleArray {
-            
-            let titleItem = TSSegmentedControlTitleItem()
-            titleItem.normalTitle = title
-            titleItem.normalColor = color
-            titleItem.selectColor = selectColor
-            titleItem.normalFont = font
-            titleItem.selectFont = selectFont
-            self.configItem.titles.append(titleItem)
-        }
+        self.buttonTitle.removeAll()
+        self.buttonTitle.append(contentsOf: titleArray)
         self.segmentControlInstall()
     }
     
@@ -148,31 +162,18 @@ public class TSSegmentedControl: UIView {
             subview.removeFromSuperview()
         }
         self.buttonArray.removeAll()
-        
-        if let data = self.dataSource?.segmentedControlSetConfigItem?() {
-            
-            self.configItem = data
-        }
+    
         createUI()
         createButtons()
         setConstraints()
     }
-    
-    public override func layoutSubviews() {
+    /// 刷新配置项
+    public func segmentControlReload(titleArray: Array<TSSegmentedControlPlusTitleItem>) {
         
-        super.layoutSubviews()
-        self.layoutIfNeeded()
-        mainScorllView.contentSize = mainView.frame.size
+        self.buttonTitle.removeAll()
+        self.buttonTitle.append(contentsOf: titleArray)
+        self.segmentControlInstall()
     }
-    
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-//公共函数
-extension TSSegmentedControl {
-    
     /// 改变选中项
     ///
     /// - Parameter tag: 位置下标
@@ -200,15 +201,26 @@ extension TSSegmentedControl {
         buttonArray[tag].isSelected = true
         selectButton(btn: buttonArray[tag], animation: false)
     }
-}
-
-// MARK: - 私有方法 （创建UI等）
-extension TSSegmentedControl {
     
+//MARK: - Event response
+    
+    /// 点击选中项
+    ///
+    /// - Parameter btn: 选中项下标
+    @objc private func buttonOnClick(btn: UIButton){
+        
+        selectButton(btn: btn)
+        
+        delegate?.segmentedControlPlusSelectIndex?(index: btn.tag)
+    }
+    
+//MARK: - Private method
+    
+    /// 创建基础UI
     private func createUI() {
         
-        scrollLine.backgroundColor = self.configItem.scrollLineColor
-        bottomLine.backgroundColor = self.configItem.bottomLineColor
+        scrollLine.backgroundColor = self.scrollLineColor
+        bottomLine.backgroundColor = self.bottomLineColor
         addSubview(mainScorllView)
         addSubview(bottomLine)
         mainScorllView.addSubview(mainView)
@@ -218,10 +230,12 @@ extension TSSegmentedControl {
         if #available(iOS 11.0, *) {
             mainScorllView.contentInsetAdjustmentBehavior = .never
         } else {
-            
+            /// 这里拿不到vc所以无法配置vc的属性: automaticallyAdjustsScrollViewInsets
+            TSLog("TSSegmentedControlPlus：如果是iOS 11.0 请配置vc.automaticallyAdjustsScrollViewInsets = false")
         }
     }
     
+    /// 配置约束
     private func setConstraints() {
         
         mainScorllView.snp.makeConstraints { (make) in
@@ -229,17 +243,19 @@ extension TSSegmentedControl {
         }
         
         mainView.snp.makeConstraints { (make) in
-            make.left.top.equalToSuperview()
+            
+            make.left.equalToSuperview()
+            make.top.equalToSuperview()
             make.height.equalToSuperview()
         }
         if self.buttonArray.count > 0 {
             
             scrollLine.snp.makeConstraints { (make) in
                 
-                make.bottom.equalToSuperview().offset(-self.configItem.scrollLineBottomY)
+                make.bottom.equalToSuperview().offset(-self.scrollLineBottomY)
                 make.centerX.equalTo(buttonArray[0])
-                make.width.equalTo(self.configItem.scrollLineWidth)
-                make.height.equalTo(self.configItem.scrollLineHeight)
+                make.width.equalTo(self.scrollLineWidth)
+                make.height.equalTo(self.scrollLineHeight)
             }
         }
         bottomLine.snp.makeConstraints { (make) in
@@ -248,26 +264,20 @@ extension TSSegmentedControl {
         }
     }
     
+    /// 创建每一项
     private func createButtons() {
         
         var tmpButton : UIButton?
-        var count: Float = Float(self.configItem.titles.count)
+        var count: Float = Float(self.buttonArray.count)
         
         if count > 3 {
             count = 3.0
         }
-        var leftSpace: CGFloat = 0
-        if let space = self.dataSource?.segmentedControlLeftSpace?() {
-            leftSpace = space
-        }
         
-        var rightSpace: CGFloat = 0
-        if let space = self.dataSource?.segmentedControlRightSpace?() {
-            rightSpace = space
-        }
-        for (i, title) in self.configItem.titles.enumerated(){
+        for (i, title) in self.buttonTitle.enumerated(){
             
             let button : UIButton = TSSegmentedControlItemButton()
+
             if let normalTitle = title.normalTitle {
                 button.setTitle(normalTitle, for: UIControlState.normal)
             }
@@ -299,7 +309,7 @@ extension TSSegmentedControl {
             mainView.addSubview(button)
             
             var itemSpace: CGFloat = 0
-            if let space = self.dataSource?.segmentedControlItemSpace?(index: i) {
+            if let space = self.dataSource?.segmentedControlPlusItemSpace?(index: i) {
                 itemSpace = space
             }
             
@@ -313,7 +323,7 @@ extension TSSegmentedControl {
                     
                     make.left.equalToSuperview().offset(leftSpace)
                 }
-                if let size = self.dataSource?.segmentedControlItemSize?(index: i) {
+                if let size = self.dataSource?.segmentedControlPlusItemSize?(index: i) {
                     
                     make.centerY.equalToSuperview()
                     make.width.equalTo(size.width)
@@ -331,13 +341,6 @@ extension TSSegmentedControl {
         })
     }
     
-    @objc private func buttonOnClick(btn: UIButton){
-        
-        selectButton(btn: btn)
-        
-        delegate?.segmentedControlSelectIndex(index: btn.tag)
-    }
-    
     private func selectButton(btn:UIButton, animation: Bool = true) {
         
         for tempButton in buttonArray {
@@ -345,13 +348,13 @@ extension TSSegmentedControl {
             if tempButton != btn {
                 tempButton.isSelected = false
                 
-                if let font = self.configItem.titles[tempButton.tag].normalFont {
+                if let font = self.buttonTitle[tempButton.tag].normalFont {
                     tempButton.titleLabel?.font = font
                 }
                 
             }else{
                 btn.isSelected = true
-                if let font = self.configItem.titles[tempButton.tag].selectFont {
+                if let font = self.buttonTitle[tempButton.tag].selectFont {
                     btn.titleLabel?.font = font
                 }
             }
@@ -360,10 +363,10 @@ extension TSSegmentedControl {
         
         scrollLine.snp.remakeConstraints { (make) in
             
-            make.bottom.equalToSuperview().offset(-self.configItem.scrollLineBottomY)
+            make.bottom.equalToSuperview().offset(-self.scrollLineBottomY)
             make.centerX.equalTo(btn)
-            make.width.equalTo(self.configItem.scrollLineWidth)
-            make.height.equalTo(self.configItem.scrollLineHeight)
+            make.width.equalTo(self.scrollLineWidth)
+            make.height.equalTo(self.scrollLineHeight)
         }
         
         if animation {
@@ -375,20 +378,20 @@ extension TSSegmentedControl {
         var rightItemspace:CGFloat = 0
         if index == self.buttonArray.count {
             
-            rightItemspace = self.dataSource?.segmentedControlRightSpace?() ?? 0
+            rightItemspace = self.rightSpace
         }else {
             
-            rightItemspace = self.dataSource?.segmentedControlItemSpace?(index: index) ?? 0
+            rightItemspace = self.dataSource?.segmentedControlPlusItemSpace?(index: index) ?? 0
             rightItemspace = rightItemspace / 2.0
         }
         
         var leftItemspace:CGFloat = 0
         if index == 0 {
             
-            leftItemspace = self.dataSource?.segmentedControlLeftSpace?() ?? 0
+            leftItemspace = self.leftSpace
         }else {
             
-            leftItemspace = self.dataSource?.segmentedControlItemSpace?(index: index) ?? 0
+            leftItemspace = self.dataSource?.segmentedControlPlusItemSpace?(index: index) ?? 0
             leftItemspace = leftItemspace / 2.0
         }
         
@@ -400,6 +403,7 @@ extension TSSegmentedControl {
             mainScorllView.setContentOffset(CGPoint(x: btn.frame.minX - leftItemspace, y: 0), animated: true)
         }
     }
+    
 }
 
 /// 为了取消按钮的高亮状态 重写isHighlighted属性
