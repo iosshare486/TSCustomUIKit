@@ -20,7 +20,7 @@ SPEC REPOS:
   http://gitlab.caiqr.com/zhangjunjie/ExchangePodSpecs.git:
     - TSDrawAndAnimation
     - TSUtility
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Kingfisher
     - ReachabilitySwift
     - SnapKit
@@ -50,4 +50,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: a7e1228e371da972d945ccb44e1ed9a0d3909c03
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.0
