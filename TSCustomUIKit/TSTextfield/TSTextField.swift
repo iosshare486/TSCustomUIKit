@@ -257,7 +257,7 @@ open class TSTextField: UITextField, UITextFieldDelegate {
             return false
         }
     
-        let numberStr = "^[a-z0-9]+$"
+        let numberStr = "^[A-Za-z0-9]+$"
         let regextestmobile = NSPredicate(format: "SELF MATCHES %@",numberStr)
         
         return regextestmobile.evaluate(with: num)
