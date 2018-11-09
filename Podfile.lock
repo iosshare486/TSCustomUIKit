@@ -1,7 +1,7 @@
 PODS:
-  - Kingfisher (4.10.0)
+  - Kingfisher (4.10.1)
   - ReachabilitySwift (4.3.0)
-  - SnapKit (4.0.1)
+  - SnapKit (4.2.0)
   - TSDrawAndAnimation (2.0.0)
   - TSNetworkMonitor (2.0.0):
     - ReachabilitySwift
@@ -40,9 +40,9 @@ CHECKOUT OPTIONS:
     :git: http://gitlab.caiqr.com/ios_module/TSRefresh.git
 
 SPEC CHECKSUMS:
-  Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
-  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   TSDrawAndAnimation: cfcfb5aa87f369c17be76a6ce1d6c6010e36ee22
   TSNetworkMonitor: 2be65b4008a628b6dc7019f587cb91b61c2ed13e
   TSRefresh: 50725257d08b496bc4ce96b65247bcf320672332

@@ -287,10 +287,10 @@ extension TSSegmentedControl {
                 button.setImage(selectImage, for: UIControl.State.selected)
             }
             if let normalBackImage = title.normalBackgroundImage {
-                button.setBackgroundImage(normalBackImage, for: UIControlState.normal)
+                button.setBackgroundImage(normalBackImage, for: UIControl.State.normal)
             }
             if let selectBackImage = title.selectBackgroundImage {
-                button.setBackgroundImage(selectBackImage, for: UIControlState.selected)
+                button.setBackgroundImage(selectBackImage, for: UIControl.State.selected)
             }
             button.titleLabel?.font = title.normalFont
             button.adjustsImageWhenHighlighted = false
