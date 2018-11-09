@@ -276,7 +276,7 @@ public class TSSegmentedControlPlus: UIView {
         
         for (i, title) in self.buttonTitle.enumerated(){
             
-            let button : UIButton = TSSegmentedControlItemButton()
+            let button : UIButton = TSSegmentedControlItemPlusButton()
 
             if let normalTitle = title.normalTitle {
                 button.setTitle(normalTitle, for: UIControl.State.normal)
@@ -407,7 +407,7 @@ public class TSSegmentedControlPlus: UIView {
 }
 
 /// 为了取消按钮的高亮状态 重写isHighlighted属性
-fileprivate class TSSegmentedControlItemButton: UIButton {
+fileprivate class TSSegmentedControlItemPlusButton: UIButton {
     
     override var isHighlighted: Bool {
         set {
