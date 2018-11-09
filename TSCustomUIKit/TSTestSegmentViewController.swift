@@ -14,31 +14,13 @@ class TSTestSegmentViewController: UIViewController {
 
     private var segmentedControl: TSSegmentedControlPlus!
     
+    private var button = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let item1 = TSSegmentedControlPlusTitleItem()
-        item1.normalTitle = "标题1"
-        item1.normalBackgroundImage = UIImage.init(color: 0x9.ts.color())
-        item1.selectBackgroundImage = UIImage.init(color: 0xf.ts.color())
-        
-        let item2 = TSSegmentedControlPlusTitleItem()
-        item2.normalTitle = "标题2"
-        item2.normalBackgroundImage = UIImage.init(color: 0x9.ts.color())
-        item2.selectBackgroundImage = UIImage.init(color: 0xf.ts.color())
-        
-        let item3 = TSSegmentedControlPlusTitleItem()
-        item3.normalTitle = "标题3"
-        item3.normalBackgroundImage = UIImage.init(color: 0x9.ts.color())
-        item3.selectBackgroundImage = UIImage.init(color: 0xf.ts.color())
-        
-        let item4 = TSSegmentedControlPlusTitleItem()
-        item4.normalTitle = "标题4"
-        item4.normalBackgroundImage = UIImage.init(color: 0x9.ts.color())
-        item4.selectBackgroundImage = UIImage.init(color: 0xf.ts.color())
-        
-        segmentedControl = TSSegmentedControlPlus(frame: CGRect.zero, titleArray: [item1, item2, item3, item4])
-        segmentedControl.alignment = .right
+        segmentedControl = TSSegmentedControlPlus(frame: CGRect.zero, titleArray: [])
+        segmentedControl.alignment = .center
 //        segmentedControl.delegate = self
         segmentedControl.dataSource = self
         self.view.addSubview(segmentedControl)
@@ -51,8 +33,28 @@ class TSTestSegmentViewController: UIViewController {
         
         segmentedControl.segmentControlInstall()
         
-        
+        button.backgroundColor = .blue
+        button.addTarget(self, action: #selector(buttonOnClick), for: UIControl.Event.touchUpInside)
+        view.addSubview(button)
+        button.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+            make.width.height.equalTo(30)
+        }
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func buttonOnClick() {
+        var titles = [TSSegmentedControlPlusTitleItem]()
+        for i in 0..<10 {
+            
+            let item1 = TSSegmentedControlPlusTitleItem()
+            item1.normalTitle = "标题\(i)"
+            item1.normalColor = .red
+            item1.normalBackgroundImage = UIImage.init(color: 0x9.ts.color())
+            item1.selectBackgroundImage = UIImage.init(color: 0xf.ts.color())
+            titles.append(item1)
+        }
+        segmentedControl.segmentControlReload(titleArray: titles)
     }
     
 }
@@ -60,6 +62,6 @@ class TSTestSegmentViewController: UIViewController {
 extension TSTestSegmentViewController: TSSegmentedControlPlusDataSource {
     
     func segmentedControlPlusItemSize(index: Int) -> CGSize {
-        return CGSize(width: 50.ts.scale(), height: 30.ts.scale())
+        return CGSize(width: 50, height: 30.ts.scale())
     }
 }

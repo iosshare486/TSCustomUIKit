@@ -87,9 +87,9 @@ public class TSSegmentedControlPlus: UIView {
     public var alignment: TSSegmentedControlPlusAlignment = .left
     
 //MARK: - private属性
-    private lazy var mainScorllView: UIScrollView = UIScrollView(frame: .zero)
+    private var mainScorllView: UIScrollView = UIScrollView(frame: .zero)
     
-    private lazy var mainView: UIView = UIView(frame: .zero)
+    private var mainView: UIView = UIView(frame: .zero)
     
     private lazy var scrollLine: UIView = UIView()
     
@@ -161,6 +161,11 @@ public class TSSegmentedControlPlus: UIView {
         for subview in self.mainView.subviews {
             subview.removeFromSuperview()
         }
+        for subview in self.mainScorllView.subviews {
+            subview.removeFromSuperview()
+        }
+        mainView = UIView(frame: .zero)
+        mainScorllView = UIScrollView(frame: .zero)
         self.buttonArray.removeAll()
     
         createUI()
