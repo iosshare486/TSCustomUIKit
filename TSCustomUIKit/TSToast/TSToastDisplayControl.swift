@@ -79,13 +79,13 @@ open class TSToastDisplayControl: NSObject {
         toastView.text = toastText
         toastView.layer.cornerRadius = CGFloat(tostViewCornerRadius)
         
-        if toastView.superview == nil {
-            let window = UIApplication.shared.keyWindow
-            if window == nil {
-                return
-            }
-            window?.addSubview(toastView)
+        toastView.removeFromSuperview()
+        
+        if let window = UIApplication.shared.keyWindow {
+            
+             window.addSubview(toastView)
         }
+        
         toastView.snp.remakeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.height.equalTo(38.ts.scale())
