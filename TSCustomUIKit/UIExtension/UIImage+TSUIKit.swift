@@ -17,8 +17,9 @@ public extension UIImage {
     ///   - height: 高度
     ///   - rgbColor: 渐变色值数组 [0x333333, 0xffffff] 只能传Int或String
     ///   - locations: 渐变值区域
+    ///   - isHorizontal: 是否横向渐变色
     /// - Returns: 返回图片
-    convenience public init?<T> (width: CGFloat, height: CGFloat, withRGBValue rgbColor: [T], gradualAreaScale locations: [CGFloat] = [0,1]) {
+    convenience public init?<T> (width: CGFloat, height: CGFloat, withRGBValue rgbColor: [T], gradualAreaScale locations: [CGFloat] = [0,1], isHorizontal: Bool = true) {
         
         let rect = CGRect(x: 0.0, y: 0.0, width: width, height: height)
         UIGraphicsBeginImageContext(rect.size)
@@ -87,7 +88,10 @@ public extension UIImage {
         //渐变开始位置
         let start = CGPoint(x: 0, y: 0)
         //渐变结束位置
-        let end = CGPoint(x: width, y: height)
+        var end = CGPoint(x: width, y: height)
+        if isHorizontal == false {
+            end = CGPoint(x: 0, y: height)
+        }
         //绘制渐变
         context?.drawLinearGradient(gradient, start: start, end: end,
                                     options: .drawsBeforeStartLocation)
