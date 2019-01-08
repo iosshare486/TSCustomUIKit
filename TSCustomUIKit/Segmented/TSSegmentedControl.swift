@@ -99,13 +99,13 @@ public class TSSegmentedControl: UIView {
     /// segmented 配置
     private var configItem: TSSegmentedControlConfigItem!
     
-    private lazy var mainScorllView: UIScrollView = UIScrollView(frame: .zero)
+    private var mainScorllView: UIScrollView = UIScrollView(frame: .zero)
     
-    private lazy var mainView: UIView = UIView(frame: .zero)
+    private var mainView: UIView = UIView(frame: .zero)
     
-    private lazy var scrollLine: UIView = UIView()
+    private var scrollLine: UIView = UIView()
     
-    private lazy var bottomLine: UIView = UIView()
+    private var bottomLine: UIView = UIView()
     
     private lazy var buttonArray: [UIButton] = [UIButton]()
     
@@ -148,6 +148,18 @@ public class TSSegmentedControl: UIView {
             subview.removeFromSuperview()
         }
         self.buttonArray.removeAll()
+        
+        self.mainScorllView.removeFromSuperview()
+        self.mainScorllView = UIScrollView(frame: .zero)
+        
+        scrollLine.removeFromSuperview()
+        scrollLine = UIView()
+        
+        bottomLine.removeFromSuperview()
+        bottomLine = UIView()
+        
+        self.mainView.removeFromSuperview()
+        self.mainView = UIView.init(frame: .zero)
         
         if let data = self.dataSource?.segmentedControlSetConfigItem?() {
             
