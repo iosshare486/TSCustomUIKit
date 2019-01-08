@@ -10,6 +10,18 @@ import UIKit
 import Kingfisher
 
 extension TSUIKit where TU: UIButton {
+    
+    /**
+     设置按钮文字内容
+     */
+    public func setTitleState(text: String, textColor: UIColor, font: UIFont, state: UIControl.State) -> Void {
+        
+        self.base.setTitle(text, for: state)
+        self.base.setTitleColor(textColor, for: state)
+        self.base.titleLabel?.font = font
+        self.base.titleLabel?.adjustsFontSizeToFitWidth = true
+    }
+    
     /// 设置图片
     public func setImage(url : String?,_ status : UIControl.State = .normal) {
         

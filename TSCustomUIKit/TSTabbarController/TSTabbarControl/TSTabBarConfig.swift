@@ -328,6 +328,17 @@ open class TSTabBarConfig: NSObject {
         return tempArr;
     }
     
+    public func updataTarBarButtonTitle(titles: [String]) -> Void {
+        
+        if titles.count == getTabBarButtons().count {
+            
+            for (index, btn) in getTabBarButtons().enumerated() {
+                
+                btn.title?.text = titles[index]
+            }
+        }
+    }
+    
 }
 
 
