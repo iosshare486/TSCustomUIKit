@@ -134,7 +134,7 @@ open class TSTextField: UITextField, UITextFieldDelegate {
                 }
             }
         
-            return true
+            return isOnleyHasNumber(str: string)
         case .tsTextFieldCustomLimit(let limit):
             if limit.customLimit != nil {
                 return limit.customLimit!()
